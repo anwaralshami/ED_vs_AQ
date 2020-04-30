@@ -1,0 +1,16 @@
+> summary(adm_08)
+ ADMISSION.DATE        BIRTHDATE             SEX                 CCS           CCS_des         
+ Min.   :2009-06-30   Length:38641       Length:38641       Min.   :   1.0   Length:38641      
+ 1st Qu.:2009-09-20   Class :character   Class :character   1st Qu.: 126.0   Class :character  
+ Median :2009-12-15   Mode  :character   Mode  :character   Median : 211.0   Mode  :character  
+ Mean   :2009-12-22                                         Mean   : 193.2                     
+ 3rd Qu.:2010-03-29                                         3rd Qu.: 244.0                     
+ Max.   :2010-06-30                                         Max.   :2620.0                     
+> summary(adm_18)
+ ADMISSION.DATE        BIRTHDATE             SEX                 CCS           CCS_des         
+ Min.   :2018-11-03   Length:57774       Length:57774       Min.   :   1.0   Length:57774      
+ 1st Qu.:2019-02-01   Class :character   Class :character   1st Qu.: 122.0   Class :character  
+ Median :2019-05-01   Mode  :character   Mode  :character   Median : 159.0   Mode  :character  
+ Mean   :2019-05-02                                         Mean   : 194.5                     
+ 3rd Qu.:2019-08-01                                         3rd Qu.: 240.0                     
+ Max.   :2019-11-03                                         Max.   :2621.0 
