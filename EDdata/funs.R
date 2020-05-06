@@ -6,18 +6,20 @@ library(scales)
 library(tidyr)
 library(plotly)
 library(reshape2)
+library(forcats)
 
 
 
 timeSeriesCCS <- function(df2009,df2018,ccsCodeDescSelected, mindate09, maxdate09,
-                          mindate18,maxdate18,minage,maxage,addressList,plotType){
+                          mindate18,maxdate18,minage,maxage,addressList,genderList,plotType){
   df2018 %>% 
     filter(ccsCodeDesc == ccsCodeDescSelected,
            admissionDate>mindate18,
            admissionDate<maxdate18,
            age<maxage,
            age>minage,
-           address %in% addressList)%>%
+           address %in% addressList,
+           sex %in% genderList)%>%
     mutate(date = admissionDate) %>%
     #complete(date = seq.Date(min(date), max(date), by="day"))%>%
     mutate(year = "2018-2019")-> df2018p
@@ -28,7 +30,8 @@ timeSeriesCCS <- function(df2009,df2018,ccsCodeDescSelected, mindate09, maxdate0
            admissionDate<maxdate09,
            age<maxage,
            age>minage,
-           address %in% addressList)%>%
+           address %in% addressList,
+           sex %in% genderList)%>%
     mutate(date = admissionDate+years(9)) %>%
     #complete(date = seq.Date(min(date), max(date), by="day"))%>%
     mutate(year = "2009-2010")-> df2009p
@@ -75,13 +78,14 @@ timeSeriesCCS <- function(df2009,df2018,ccsCodeDescSelected, mindate09, maxdate0
 }
 
 pyramidPlot <- function(df2009,df2018,mindate09, maxdate09,
-                        mindate18,maxdate18,minage,maxage,addressList,n){
+                        mindate18,maxdate18,minage,maxage,addressList,genderList,n){
   df2009 %>%
     filter(admissionDate>mindate09,
            admissionDate<maxdate09,
            age<maxage,
            age>minage,
-           address %in% addressList)%>%
+           address %in% addressList,
+           sex %in% genderList)%>%
     group_by(ccsCodeDesc)%>%
     summarize(count09 = n()) ->count09
   n09<-sum(count09$count09)
@@ -91,7 +95,8 @@ pyramidPlot <- function(df2009,df2018,mindate09, maxdate09,
            admissionDate<maxdate18,
            age<maxage,
            age>minage,
-           address %in% addressList)%>%
+           address %in% addressList,
+           sex %in% genderList)%>%
     group_by(ccsCodeDesc)%>%
     summarize(count18 = n()) ->count18
   n18<-sum(count18$count18)
@@ -130,4 +135,100 @@ pyramidPlot <- function(df2009,df2018,mindate09, maxdate09,
   
 }
 
+oddsRatioDat <- function(df2009,df2018, mindate09, maxdate09,
+                          mindate18,maxdate18,minage,maxage,addressList,genderList){
+  df2009 %>%
+    filter(admissionDate>mindate09,
+           admissionDate<maxdate09,
+           age<maxage,
+           age>minage,
+           address %in% addressList,
+           sex %in% genderList)%>%
+    group_by(ccsCodeDesc)%>%
+    summarize(count09 = n()) ->count09
+  
+  
+  df2018 %>%
+    filter(admissionDate>mindate18,
+           admissionDate<maxdate18,
+           age<maxage,
+           age>minage,
+           address %in% addressList,
+           sex %in% genderList)%>%
+    group_by(ccsCodeDesc)%>%
+    summarize(count18 = n()) ->count18
+  
+  joinCounts <- inner_join(count09,count18)
+  odds <- as.data.frame(select(joinCounts,-ccsCodeDesc))
+  rownames(odds)<-joinCounts$ccsCodeDesc
+  colnames(odds)<-c("2009-10","2018-19")
+  totals <- data.frame(EDyear = c("2009-10","2018-19"),
+                       EDcount = c(sum(odds$`2009-10`),sum(odds$`2018-19`))
+  )
+  oddsRatios <- generateOdds_5z(1,as.matrix(odds),totals,c("2009-10","2018-19"))                     
+  
+  for (i in 2:nrow(odds)){
+    #print(i)
+    oddsRatios<-rbind(oddsRatios,generateOdds_5z(i,as.matrix(odds),totals,c("2009-10","2018-19"))) 
+  }
+  
+  oddsRatios %>% 
+    filter(exposure == "2018-19")%>%
+    select(disease,Case,Control,estimate,lower,upper,midp.exact)%>%
+    filter(midp.exact <= 0.05)%>%
+    mutate(disease = fct_reorder(disease, desc(estimate)))%>%
+    arrange((estimate))->oddsRatios2
+  
+  return(oddsRatios2)
+}
 
+oddsRatioPlot <- function(oddsRatios2){
+  
+  
+  p <- ggplot(oddsRatios2, aes(x = estimate, y = disease)) + 
+    geom_vline(aes(xintercept = 1), size = .25, linetype = "dashed") + 
+    geom_errorbarh(aes(xmax = upper, xmin = lower), size = .5, height = 
+                     .2, color = "gray50") +
+    geom_point(size = 3.5, color = "orange") +
+    scale_x_continuous(trans="log",breaks = c(0.1,0.5,1,2,5,10,20,50,100,200 )) +
+    #coord_trans(x = 'log10') +
+    theme_bw()+
+    theme(panel.grid.minor = element_blank()) +
+    ylab("") +
+    xlab("Odds ratio (log scale)") +
+    annotate(geom = "text", y =1.1, x = log10(0.5), 
+             label = "Model p < 0.05", size = 3.5, hjust = 0)
+  
+  p
+}
+
+generateOdds_5z <- function(i,matDat,totals,expNames) {
+  d0<-as.data.frame.matrix(matDat)[i,]
+  dis<-rownames(d0)
+  cases <- t(d0)
+  colnames(cases)<-c("case")
+  cases<- as.data.frame(cases)
+  cases$batata <- as.numeric(totals[[2]])-cases[1]
+  as.matrix(cases)
+  oddsratio.midp(as.matrix(cases))
+  
+  tapw <- expNames
+  outc <- c("Case", "Control")
+  dat <- as.matrix(cases)
+  dimnames(dat) <- list("exposure" = tapw, "Outcome" = outc)
+  x<-oddsratio(dat, rev="c",)
+  
+  y<-as.data.frame(cbind(dat,x$measure,x$p.value))
+  y$exposure <- rownames(y)
+  y$disease <- dis
+  return(y)
+}    
+
+set_shiny_plot_height_with_respects_to_width <- function(session, output_width_name){
+  width <- function() { 
+    session$clientData[[output_width_name]] 
+  }
+  # Do something with the width
+  #round(as.numeric(width) *2)
+  width
+}

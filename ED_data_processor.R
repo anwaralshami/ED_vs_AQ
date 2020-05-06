@@ -37,20 +37,21 @@ df2018_2$AGE <- as.duration(interval(df2018_2$Date.of.Birth,now())) %/% as.durat
 ##### Fix Sex, select, and rename columns #####
 df2018_1 %>%
   mutate(SEX = if_else(Gender == "Male","M",
-                        if_else(Gender == "Female","F","Unknown"))) %>%
+                        if_else(Gender == "Female","F","Other"))) %>%
   select(AGE,SEX,Arrived,Country,City,Diagnoses)%>%
   rename(age = AGE, sex = SEX, admissionDate = Arrived, country = Country,address = City,  icdCode = Diagnoses) %>%
   mutate(icdCodeType = "ICD10CM") -> df2018_1
 
 df2018_2 %>%
   mutate(SEX = if_else(Gender == "Male","M",
-                       if_else(Gender == "Female","F","Unknown"))) %>%
+                       if_else(Gender == "Female","F","Other"))) %>%
   select(AGE,SEX,Arrived,Country,City,Diagnoses)%>%
   rename(age = AGE, sex = SEX, admissionDate = Arrived, country = Country, address = City, icdCode = Diagnoses) %>%
   mutate(icdCodeType = "ICD10CM") -> df2018_2
 
 df2009 %>%
   select(AGE,SEX,ADMISSION.DATE,ADDRESS.1,ICD9CM.1)%>%
+  replace_na(list(SEX = "Other"))%>%
   rename(age = AGE, sex = SEX, admissionDate = ADMISSION.DATE, address = ADDRESS.1, icdCode = ICD9CM.1)%>%
   mutate(icdCodeType = "ICD9CM") -> df2009
 
@@ -77,8 +78,8 @@ df2018 %>%
   left_join(select(ccsDesc,ccsCode ,ccsCodeDesc))->df2018
 
 df2009 %>%
-  mutate(icdCode = trimws(icdCode))%>%
-  left_join( ccsMap,by = c("icdCode","icdCodeType")) %>%
+  mutate(icdCode = trimws(df2009$icdCode))%>%
+  left_join(ccsMap,by = c("icdCode","icdCodeType")) %>%
   filter(!is.na(ccsCode)) %>%
   mutate(address = tolower(trimws(as.character(address))))%>%
   mutate(address = if_else(address == "beiurt","beirut",address))%>%

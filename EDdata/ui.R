@@ -3,6 +3,8 @@ library(lubridate)
 load(file = "processedData/ordered_ccs_codes")
 load(file = "processedData/address")
 
+
+
 #For dropdown menu
 actionLink <- function(inputId, ...) {
     tags$a(href='javascript:void',
@@ -17,8 +19,7 @@ fluidPage(
         column(3,
                wellPanel(
                    h4("Filter"),
-                   selectInput("ccsCodeDesc", "CCS category",
-                                ordered_ccs_codes),
+                   
                    dateRangeInput('dateRange09',
                                   label = 'Date range 09-10: yyyy-mm-dd',
                                   start = ymd(20091103), end = ymd(20100630)
@@ -31,25 +32,49 @@ fluidPage(
                                min = 0, max = 100,
                                value = c(0,100)),
                    selectizeInput(
+                       'gender', 'Gender:', 
+                       choices = c("M","F","Other"), 
+                       multiple = TRUE,
+                       selected = c("M","F","Other")
+                   ),
+                   selectizeInput(
                        'address', 'Mohafaza:', 
                        choices = address, 
                        multiple = TRUE,
                        selected = address
                    )
-               ),
-               wellPanel(
-                   selectInput("plottype", "Timeseries plot type", c("Line" = "Line", "local polynomial regression" = "Smooth"), selected = "Line")
+                   #,textOutput('test')   ## Uncommenting this line, it works.
                )
 
         ),
         column(9,
                tabsetPanel(type = "tabs",
-                           tabPanel("Timeseries", plotlyOutput("plot"),
+                           tabPanel("Timeseries", 
+                                    selectInput("ccsCodeDesc", "CCS category",
+                                                ordered_ccs_codes),
+                                    plotlyOutput("plot"),
                                     textOutput("textTS09"),
-                                    textOutput("textTS18")),
+                                    textOutput("textTS18"),
+                                    selectInput("plottype", "Timeseries plot type", 
+                                                c("Line" = "Line", "local polynomial regression" = "Smooth"), selected = "Line")
+                                    
+                           ),
+                           
                            tabPanel("Case comparaison",plotlyOutput("plot2"),
                                     textOutput("textPR09"),
-                                    textOutput("textPR18"))
+                                    textOutput("textPR18")),
+                           tabPanel("Odds ratios",
+                                    tags$style(type="text/css",
+                                               ".shiny-output-error { visibility: hidden; }",
+                                               ".shiny-output-error:before { visibility: hidden; }"
+                                    ),
+                                    
+                                    h4("Press the button to start computation for selected filters, only results with significant p-values will plot"),
+                                    h4("Computation might take a few minutes..."),
+                                    actionButton(inputId = 'run',label = 'Compute Odds Ratios'),
+                                    plotOutput("plot3")#,height = "auto"),
+                                    
+                                    )
                            )
                )
               # ggvisOutput("plot1"),
