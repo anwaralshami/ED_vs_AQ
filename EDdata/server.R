@@ -1,6 +1,6 @@
 load(file="processedData/admissions_2009_2010_clean")
 load(file="processedData/admissions_2018_2019_clean")
-setwd("~/genRepo/AUBMC_health_vs-AQ/EDdata")
+#setwd("~/genRepo/AUBMC_health_vs-AQ/EDdata")
 source("funs.R")
 
  function(input, output, session) {
@@ -15,10 +15,12 @@ source("funs.R")
          maxage <- input$age[2]
          addressList <- input$address
          genderList <- input$gender
+         dispositionList <- input$disposition
          plotType <- input$plottype
          
+         
          timeSeriesCCS(df2009,df2018,ccsCodeDescSelected, mindate09, maxdate09,
-                       mindate18,maxdate18,minage,maxage,addressList,genderList,plotType)
+                       mindate18,maxdate18,minage,maxage,addressList,genderList,dispositionList,plotType)
          
                        
          
@@ -33,11 +35,12 @@ source("funs.R")
          maxage <- input$age[2]
          addressList <- input$address
          genderList <- input$gender
+         dispositionList <- input$disposition
          n <- 20
          #plotType <- input$plottype
          
          pyramidPlot(df2009,df2018,mindate09, maxdate09,
-                     mindate18,maxdate18,minage,maxage,addressList,genderList,n)
+                     mindate18,maxdate18,minage,maxage,addressList,genderList,dispositionList,n)
          
          
          
@@ -52,6 +55,7 @@ source("funs.R")
              maxage <- input$age[2]
              addressList <- input$address
              genderList <- input$gender
+             dispositionList <- input$disposition
              ncase09TS<-df2009 %>% 
                      filter(ccsCodeDesc == ccsCodeDescSelected,
                             admissionDate>mindate09,
@@ -59,6 +63,7 @@ source("funs.R")
                             age<maxage,
                             age>minage,
                             address %in% addressList,
+                            disposition %in% dispositionList,
                             sex %in% genderList)%>%
                      nrow
              paste0(ncase09TS, " cases in 2009-2010 for selected filters") 
@@ -70,6 +75,7 @@ source("funs.R")
              maxdate09 <- input$dateRange09[2]
              mindate18 <- input$dateRange18[1]
              maxdate18 <- input$dateRange18[2]
+             dispositionList <- input$disposition
              minage <- input$age[1]
              maxage <- input$age[2]
              addressList <- input$address
@@ -81,6 +87,7 @@ source("funs.R")
                             age<maxage,
                             age>minage,
                             address %in% addressList,
+                            disposition %in% dispositionList,
                             sex %in% genderList)%>%
                      nrow
              paste0(ncase18TS, " cases in 2018-2019 for selected filters") 
@@ -92,6 +99,7 @@ source("funs.R")
              maxdate09 <- input$dateRange09[2]
              mindate18 <- input$dateRange18[1]
              maxdate18 <- input$dateRange18[2]
+             dispositionList <- input$disposition
              minage <- input$age[1]
              maxage <- input$age[2]
              genderList <- input$gender
@@ -101,6 +109,7 @@ source("funs.R")
                             admissionDate<maxdate09,
                             age<maxage,
                             age>minage,
+                            disposition %in% dispositionList,
                             address %in% addressList,
                             sex %in% genderList)%>%
                      nrow
@@ -114,6 +123,7 @@ source("funs.R")
              mindate18 <- input$dateRange18[1]
              maxdate18 <- input$dateRange18[2]
              genderList <- input$gender
+             dispositionList <- input$disposition
              minage <- input$age[1]
              maxage <- input$age[2]
              addressList <- input$address
@@ -123,6 +133,7 @@ source("funs.R")
                             age<maxage,
                             age>minage,
                             address %in% addressList,
+                            disposition %in% dispositionList,
                             sex %in% genderList)%>%
                      nrow
              paste0(ncase18TS, " cases in 2018-2019 for selected filters") 
@@ -135,8 +146,10 @@ source("funs.R")
              maxdate09 <- input$dateRange09[2]
              mindate18 <- input$dateRange18[1]
              maxdate18 <- input$dateRange18[2]
+             dispositionList <- input$disposition
              minage <- input$age[1]
              maxage <- input$age[2]
+             
              addressList <- input$address
              genderList <- input$gender
              rv$plotvals <- oddsRatioDat(df2009,df2018, mindate09, maxdate09,

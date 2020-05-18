@@ -1,0 +1,170 @@
+"","ccsCode","ccsCodeDesc","count"
+"1","1","Tuberculosis",3
+"2","10","Immunizations and screening for infectious disease",2
+"3","102","Nonspecific chest pain",59
+"4","105","Conduction disorders",1
+"5","106","Cardiac dysrhythmias",28
+"6","107","Cardiac arrest and ventricular fibrillation",1
+"7","108","Congestive heart failure; nonhypertensive",1
+"8","115","Aortic; peripheral; and visceral artery aneurysms",1
+"9","117","Other circulatory disease",9
+"10","121","Other diseases of veins and lymphatics",1
+"11","122","Pneumonia (except that caused by tuberculosis or sexually transmitted disease)",119
+"12","123","Influenza",76
+"13","124","Acute and chronic tonsillitis",250
+"14","125","Acute bronchitis",82
+"15","126","Other upper respiratory infections",647
+"16","127","Chronic obstructive pulmonary disease and bronchiectasis",40
+"17","128","Asthma",241
+"18","129","Aspiration pneumonitis; food/vomitus",1
+"19","130","Pleurisy; pneumothorax; pulmonary collapse",4
+"20","131","Respiratory failure; insufficiency; arrest (adult)",2
+"21","133","Other lower respiratory disease",612
+"22","134","Other upper respiratory disease",100
+"23","135","Intestinal infection",219
+"24","136","Disorders of teeth and jaw",6
+"25","137","Diseases of mouth; excluding dental",20
+"26","138","Esophageal disorders",29
+"27","140","Gastritis and duodenitis",73
+"28","141","Other disorders of stomach and duodenum",3
+"29","142","Appendicitis and other appendiceal conditions",37
+"30","143","Abdominal hernia",5
+"31","144","Regional enteritis and ulcerative colitis",4
+"32","145","Intestinal obstruction without hernia",6
+"33","147","Anal and rectal conditions",10
+"34","148","Peritonitis and intestinal abscess",1
+"35","149","Biliary tract disease",1
+"36","151","Other liver diseases",5
+"37","152","Pancreatic disorders (not diabetes)",1
+"38","153","Gastrointestinal hemorrhage",17
+"39","154","Noninfectious gastroenteritis",467
+"40","155","Other gastrointestinal disorders",271
+"41","156","Nephritis; nephrosis; renal sclerosis",1
+"42","159","Urinary tract infections",81
+"43","160","Calculus of urinary tract",10
+"44","161","Other diseases of kidney and ureters",1
+"45","163","Genitourinary symptoms and ill-defined conditions",63
+"46","165","Inflammatory conditions of male genital organs",8
+"47","166","Other male genital disorders",23
+"48","167","Nonmalignant breast conditions",3
+"49","168","Inflammatory diseases of female pelvic organs",2
+"50","171","Menstrual disorders",3
+"51","175","Other female genital disorders",5
+"52","181","Other complications of pregnancy",1
+"53","197","Skin and subcutaneous tissue infections",72
+"54","198","Other inflammatory condition of skin",5
+"55","199","Chronic ulcer of skin",1
+"56","2","Septicemia (except in labor)",19
+"57","200","Other skin disorders",163
+"58","201","Infective arthritis and osteomyelitis (except that caused by tuberculosis or sexually transmitted disease)",2
+"59","204","Other non-traumatic joint disorders",78
+"60","205","Spondylosis; intervertebral disc disorders; other back problems",57
+"61","207","Pathological fracture",1
+"62","209","Other acquired deformities",2
+"63","21","Cancer of bone and connective tissue",7
+"64","210","Systemic lupus erythematosus and connective tissue disorders",3
+"65","211","Other connective tissue disease",96
+"66","212","Other bone disease and musculoskeletal deformities",1
+"67","213","Cardiac and circulatory congenital anomalies",53
+"68","214","Digestive congenital anomalies",4
+"69","216","Nervous system congenital anomalies",2
+"70","217","Other congenital anomalies",16
+"71","218","Liveborn",6
+"72","219","Short gestation; low birth weight; and fetal growth retardation",1
+"73","220","Intrauterine hypoxia and birth asphyxia",1
+"74","222","Hemolytic jaundice and perinatal jaundice",38
+"75","223","Birth trauma",1
+"76","224","Other perinatal conditions",31
+"77","225","Joint disorders and dislocations; trauma-related",89
+"78","228","Skull and face fractures",18
+"79","229","Fracture of upper limb",292
+"80","230","Fracture of lower limb",98
+"81","231","Other fractures",15
+"82","232","Sprains and strains",65
+"83","233","Intracranial injury",21
+"84","234","Crushing injury or internal injury",7
+"85","235","Open wounds of head; neck; and trunk",514
+"86","236","Open wounds of extremities",192
+"87","237","Complication of device; implant or graft",20
+"88","238","Complications of surgical procedures or medical care",14
+"89","239","Superficial injury; contusion",223
+"90","240","Burns",36
+"91","241","Poisoning by psychotropic agents",2
+"92","242","Poisoning by other medications and drugs",43
+"93","243","Poisoning by nonmedicinal substances",13
+"94","244","Other injuries and conditions due to external causes",1214
+"95","245","Syncope",24
+"96","246","Fever of unknown origin",2169
+"97","247","Lymphadenitis",16
+"98","250","Nausea and vomiting",340
+"99","251","Abdominal pain",476
+"100","252","Malaise and fatigue",16
+"101","253","Allergic reactions",134
+"102","255","Administrative/social admission",1
+"103","256","Medical examination/evaluation",73
+"104","257","Other aftercare",107
+"105","258","Other screening for suspected conditions (not mental disorders or infectious disease)",21
+"106","259","Residual codes; unclassified",56
+"107","2601","External cause codes:  Cut/pierce",5
+"108","2603","External cause codes:  Fall",8
+"109","2605","External cause codes:  Firearm",1
+"110","2606","External cause codes:  Machinery",2
+"111","2607","External cause codes:  Motor vehicle traffic (MVT)",2
+"112","2609","External cause codes:  Pedestrian; not MVT",2
+"113","2620","External cause codes:  Unspecified",1
+"114","3","Bacterial infection; unspecified site",13
+"115","30","Cancer of testis",1
+"116","33","Cancer of kidney and renal pelvis",2
+"117","35","Cancer of brain and nervous system",15
+"118","37","Hodgkin`s disease",3
+"119","38","Non-Hodgkin`s lymphoma",3
+"120","39","Leukemias",69
+"121","4","Mycoses",1
+"122","41","Cancer; other and unspecified primary",6
+"123","43","Malignant neoplasm without specification of site",2
+"124","44","Neoplasms of unspecified nature or uncertain behavior",3
+"125","45","Maintenance chemotherapy; radiotherapy",11
+"126","47","Other and unspecified benign neoplasm",5
+"127","48","Thyroid disorders",1
+"128","49","Diabetes mellitus without complication",3
+"129","50","Diabetes mellitus with complications",2
+"130","51","Other endocrine disorders",2
+"131","52","Nutritional deficiencies",2
+"132","55","Fluid and electrolyte disorders",13
+"133","56","Cystic fibrosis",8
+"134","57","Immunity disorders",2
+"135","58","Other nutritional; endocrine; and metabolic disorders",18
+"136","59","Deficiency and other anemia",13
+"137","6","Hepatitis",3
+"138","61","Sickle cell anemia",73
+"139","62","Coagulation and hemorrhagic disorders",18
+"140","63","Diseases of white blood cells",128
+"141","64","Other hematologic conditions",2
+"142","649",NA,4
+"143","651","Anxiety disorders",23
+"144","657","Mood disorders",1
+"145","6572","Depressive disorders",1
+"146","659","Schizophrenia and other psychotic disorders",1
+"147","660","Alcohol-related disorders",6
+"148","661","Substance-related disorders",1
+"149","670","Miscellaneous mental health disorders",10
+"150","6704","Psychogenic disorders",2
+"151","6706","Sleep disorders",1
+"152","6707","Somatoform disorders",6
+"153","7","Viral infection",361
+"154","76","Meningitis (except that caused by tuberculosis or sexually transmitted disease)",13
+"155","8","Other infections; including parasitic",3
+"156","80","Multiple sclerosis",2
+"157","81","Other hereditary and degenerative nervous system conditions",1
+"158","82","Paralysis",1
+"159","83","Epilepsy; convulsions",99
+"160","84","Headache; including migraine",144
+"161","85","Coma; stupor; and brain damage",15
+"162","89","Blindness and vision defects",6
+"163","90","Inflammation; infection of eye (except that caused by tuberculosis or sexually transmitteddisease)",58
+"164","91","Other eye disorders",56
+"165","92","Otitis media and related conditions",338
+"166","93","Conditions associated with dizziness or vertigo",39
+"167","94","Other ear and sense organ disorders",190
+"168","95","Other nervous system disorders",39
+"169","97","Peri-; endo-; and myocarditis; cardiomyopathy (except that caused by tuberculosis or sexually transmitted disease)",5

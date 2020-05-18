@@ -1,0 +1,12 @@
+name: EDdata
+title: EDdata
+username:
+account: anwargalshami
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2205893
+bundleId: 3111783
+url: https://anwargalshami.shinyapps.io/EDdata/
+when: 1588784340.63301
+asMultiple: FALSE
+asStatic: FALSE

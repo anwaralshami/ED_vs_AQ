@@ -2,8 +2,7 @@ library(plotly)
 library(lubridate)
 load(file = "processedData/ordered_ccs_codes")
 load(file = "processedData/address")
-
-
+load(file = "processedData/disposition")
 
 #For dropdown menu
 actionLink <- function(inputId, ...) {
@@ -38,12 +37,17 @@ fluidPage(
                        selected = c("M","F","Other")
                    ),
                    selectizeInput(
+                       'disposition', 'Disposition:', 
+                       choices = disposition, 
+                       multiple = TRUE,
+                       selected = disposition
+                   ),
+                   selectizeInput(
                        'address', 'Mohafaza:', 
                        choices = address, 
                        multiple = TRUE,
                        selected = address
                    )
-                   #,textOutput('test')   ## Uncommenting this line, it works.
                )
 
         ),

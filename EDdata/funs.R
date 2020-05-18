@@ -7,11 +7,12 @@ library(tidyr)
 library(plotly)
 library(reshape2)
 library(forcats)
-
+library(questionr)
+library(epitools)
 
 
 timeSeriesCCS <- function(df2009,df2018,ccsCodeDescSelected, mindate09, maxdate09,
-                          mindate18,maxdate18,minage,maxage,addressList,genderList,plotType){
+                          mindate18,maxdate18,minage,maxage,addressList,genderList,dispositionList,plotType){
   df2018 %>% 
     filter(ccsCodeDesc == ccsCodeDescSelected,
            admissionDate>mindate18,
@@ -19,6 +20,7 @@ timeSeriesCCS <- function(df2009,df2018,ccsCodeDescSelected, mindate09, maxdate0
            age<maxage,
            age>minage,
            address %in% addressList,
+           disposition %in% dispositionList,
            sex %in% genderList)%>%
     mutate(date = admissionDate) %>%
     #complete(date = seq.Date(min(date), max(date), by="day"))%>%
@@ -28,6 +30,7 @@ timeSeriesCCS <- function(df2009,df2018,ccsCodeDescSelected, mindate09, maxdate0
     filter(ccsCodeDesc == ccsCodeDescSelected,
            admissionDate>mindate09,
            admissionDate<maxdate09,
+           disposition %in% dispositionList,
            age<maxage,
            age>minage,
            address %in% addressList,
@@ -78,13 +81,14 @@ timeSeriesCCS <- function(df2009,df2018,ccsCodeDescSelected, mindate09, maxdate0
 }
 
 pyramidPlot <- function(df2009,df2018,mindate09, maxdate09,
-                        mindate18,maxdate18,minage,maxage,addressList,genderList,n){
+                        mindate18,maxdate18,minage,maxage,addressList,genderList,dispositionList,n){
   df2009 %>%
     filter(admissionDate>mindate09,
            admissionDate<maxdate09,
            age<maxage,
            age>minage,
            address %in% addressList,
+           disposition %in% dispositionList,
            sex %in% genderList)%>%
     group_by(ccsCodeDesc)%>%
     summarize(count09 = n()) ->count09
@@ -93,6 +97,7 @@ pyramidPlot <- function(df2009,df2018,mindate09, maxdate09,
   df2018 %>%
     filter(admissionDate>mindate18,
            admissionDate<maxdate18,
+           disposition %in% dispositionList,
            age<maxage,
            age>minage,
            address %in% addressList,
@@ -113,8 +118,8 @@ pyramidPlot <- function(df2009,df2018,mindate09, maxdate09,
     select(-count)%>%
     rename(`2009-2010` = count09, `2018-2019` = count18)%>%
     melt(id = "ccsCodeDesc")%>%
-    mutate(ccsCodeDesc = as.factor(ccsCodeDesc))%>%
-    filter(value >= n|value <= -n)->counts
+    mutate(ccsCodeDesc = as.factor(ccsCodeDesc))->counts#%>%
+    #filter(value >= n|value <= -n)->counts
   
   counts$ccsCodeDesc <- factor(counts$ccsCodeDesc,levels = ccsOrder)
   
@@ -136,13 +141,14 @@ pyramidPlot <- function(df2009,df2018,mindate09, maxdate09,
 }
 
 oddsRatioDat <- function(df2009,df2018, mindate09, maxdate09,
-                          mindate18,maxdate18,minage,maxage,addressList,genderList){
+                          mindate18,maxdate18,minage,maxage,addressList,genderList,dispositionList){
   df2009 %>%
     filter(admissionDate>mindate09,
            admissionDate<maxdate09,
            age<maxage,
            age>minage,
            address %in% addressList,
+           disposition %in% dispositionList,
            sex %in% genderList)%>%
     group_by(ccsCodeDesc)%>%
     summarize(count09 = n()) ->count09
@@ -151,6 +157,7 @@ oddsRatioDat <- function(df2009,df2018, mindate09, maxdate09,
   df2018 %>%
     filter(admissionDate>mindate18,
            admissionDate<maxdate18,
+           disposition %in% dispositionList,
            age<maxage,
            age>minage,
            address %in% addressList,

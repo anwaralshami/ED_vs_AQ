@@ -1,0 +1,246 @@
+"","ccsCode","ccsCodeDesc","count"
+"1","1","Tuberculosis",5
+"2","10","Immunizations and screening for infectious disease",4
+"3","100","Acute myocardial infarction",77
+"4","101","Coronary atherosclerosis and other heart disease",509
+"5","102","Nonspecific chest pain",1123
+"6","103","Pulmonary heart disease",8
+"7","104","Other and ill-defined heart disease",1
+"8","105","Conduction disorders",6
+"9","106","Cardiac dysrhythmias",635
+"10","107","Cardiac arrest and ventricular fibrillation",59
+"11","108","Congestive heart failure; nonhypertensive",122
+"12","109","Acute cerebrovascular disease",119
+"13","11","Cancer of head and neck",2
+"14","110","Occlusion or stenosis of precerebral arteries",6
+"15","111","Other and ill-defined cerebrovascular disease",20
+"16","112","Transient cerebral ischemia",36
+"17","113","Late effects of cerebrovascular disease",4
+"18","114","Peripheral and visceral atherosclerosis",9
+"19","115","Aortic; peripheral; and visceral artery aneurysms",12
+"20","116","Aortic and peripheral arterial embolism or thrombosis",11
+"21","117","Other circulatory disease",81
+"22","118","Phlebitis; thrombophlebitis and thromboembolism",27
+"23","119","Varicose veins of lower extremity",6
+"24","12","Cancer of esophagus",1
+"25","120","Hemorrhoids",55
+"26","121","Other diseases of veins and lymphatics",7
+"27","122","Pneumonia (except that caused by tuberculosis or sexually transmitted disease)",222
+"28","123","Influenza",32
+"29","124","Acute and chronic tonsillitis",173
+"30","125","Acute bronchitis",25
+"31","126","Other upper respiratory infections",855
+"32","127","Chronic obstructive pulmonary disease and bronchiectasis",176
+"33","128","Asthma",116
+"34","129","Aspiration pneumonitis; food/vomitus",10
+"35","13","Cancer of stomach",1
+"36","130","Pleurisy; pneumothorax; pulmonary collapse",33
+"37","131","Respiratory failure; insufficiency; arrest (adult)",7
+"38","132","Lung disease due to external agents",3
+"39","133","Other lower respiratory disease",1045
+"40","134","Other upper respiratory disease",209
+"41","135","Intestinal infection",202
+"42","136","Disorders of teeth and jaw",41
+"43","137","Diseases of mouth; excluding dental",30
+"44","138","Esophageal disorders",63
+"45","139","Gastroduodenal ulcer (except hemorrhage)",5
+"46","140","Gastritis and duodenitis",93
+"47","141","Other disorders of stomach and duodenum",11
+"48","142","Appendicitis and other appendiceal conditions",80
+"49","143","Abdominal hernia",49
+"50","144","Regional enteritis and ulcerative colitis",20
+"51","145","Intestinal obstruction without hernia",50
+"52","146","Diverticulosis and diverticulitis",35
+"53","147","Anal and rectal conditions",73
+"54","148","Peritonitis and intestinal abscess",3
+"55","149","Biliary tract disease",162
+"56","151","Other liver diseases",56
+"57","152","Pancreatic disorders (not diabetes)",18
+"58","153","Gastrointestinal hemorrhage",79
+"59","154","Noninfectious gastroenteritis",860
+"60","155","Other gastrointestinal disorders",513
+"61","156","Nephritis; nephrosis; renal sclerosis",2
+"62","157","Acute and unspecified renal failure",33
+"63","158","Chronic kidney disease",53
+"64","159","Urinary tract infections",360
+"65","16","Cancer of liver and intrahepatic bile duct",13
+"66","160","Calculus of urinary tract",322
+"67","161","Other diseases of kidney and ureters",13
+"68","162","Other diseases of bladder and urethra",3
+"69","163","Genitourinary symptoms and ill-defined conditions",339
+"70","164","Hyperplasia of prostate",25
+"71","165","Inflammatory conditions of male genital organs",48
+"72","166","Other male genital disorders",41
+"73","167","Nonmalignant breast conditions",21
+"74","168","Inflammatory diseases of female pelvic organs",21
+"75","169","Endometriosis",5
+"76","171","Menstrual disorders",75
+"77","172","Ovarian cyst",19
+"78","173","Menopausal disorders",4
+"79","175","Other female genital disorders",78
+"80","177","Spontaneous abortion",4
+"81","178","Induced abortion",41
+"82","18","Cancer of other GI organs; peritoneum",3
+"83","180","Ectopic pregnancy",8
+"84","181","Other complications of pregnancy",152
+"85","182","Hemorrhage during pregnancy; abruptio placenta; placenta previa",111
+"86","183","Hypertension complicating pregnancy; childbirth and the puerperium",2
+"87","184","Early or threatened labor",3
+"88","187","Malposition; malpresentation",1
+"89","188","Fetopelvic disproportion; obstruction",3
+"90","19","Cancer of bronchus; lung",12
+"91","191","Polyhydramnios and other problems of amniotic cavity",3
+"92","195","Other complications of birth; puerperium affecting management of mother",20
+"93","196","Other pregnancy and delivery including normal",10
+"94","197","Skin and subcutaneous tissue infections",332
+"95","198","Other inflammatory condition of skin",35
+"96","199","Chronic ulcer of skin",10
+"97","2","Septicemia (except in labor)",41
+"98","200","Other skin disorders",240
+"99","201","Infective arthritis and osteomyelitis (except that caused by tuberculosis or sexually transmitted disease)",8
+"100","202","Rheumatoid arthritis and related disease",11
+"101","203","Osteoarthritis",14
+"102","204","Other non-traumatic joint disorders",383
+"103","205","Spondylosis; intervertebral disc disorders; other back problems",829
+"104","206","Osteoporosis",5
+"105","207","Pathological fracture",12
+"106","208","Acquired foot deformities",1
+"107","209","Other acquired deformities",3
+"108","210","Systemic lupus erythematosus and connective tissue disorders",8
+"109","211","Other connective tissue disease",665
+"110","212","Other bone disease and musculoskeletal deformities",15
+"111","213","Cardiac and circulatory congenital anomalies",9
+"112","215","Genitourinary congenital anomalies",2
+"113","217","Other congenital anomalies",9
+"114","225","Joint disorders and dislocations; trauma-related",61
+"115","226","Fracture of neck of femur (hip)",78
+"116","227","Spinal cord injury",3
+"117","228","Skull and face fractures",55
+"118","229","Fracture of upper limb",400
+"119","23","Other non-epithelial cancer of skin",17
+"120","230","Fracture of lower limb",336
+"121","231","Other fractures",67
+"122","232","Sprains and strains",278
+"123","233","Intracranial injury",78
+"124","234","Crushing injury or internal injury",12
+"125","235","Open wounds of head; neck; and trunk",402
+"126","236","Open wounds of extremities",676
+"127","237","Complication of device; implant or graft",63
+"128","238","Complications of surgical procedures or medical care",211
+"129","239","Superficial injury; contusion",415
+"130","24","Cancer of breast",30
+"131","240","Burns",101
+"132","241","Poisoning by psychotropic agents",31
+"133","242","Poisoning by other medications and drugs",79
+"134","243","Poisoning by nonmedicinal substances",51
+"135","244","Other injuries and conditions due to external causes",2817
+"136","245","Syncope",269
+"137","246","Fever of unknown origin",885
+"138","247","Lymphadenitis",18
+"139","248","Gangrene",1
+"140","249","Shock",4
+"141","25","Cancer of uterus",1
+"142","250","Nausea and vomiting",525
+"143","251","Abdominal pain",2321
+"144","252","Malaise and fatigue",223
+"145","253","Allergic reactions",350
+"146","254","Rehabilitation care; fitting of prostheses; and adjustment of devices",4
+"147","255","Administrative/social admission",2
+"148","256","Medical examination/evaluation",38
+"149","257","Other aftercare",33
+"150","258","Other screening for suspected conditions (not mental disorders or infectious disease)",27
+"151","259","Residual codes; unclassified",114
+"152","26","Cancer of cervix",2
+"153","2601","External cause codes:  Cut/pierce",3
+"154","2603","External cause codes:  Fall",23
+"155","2604","External cause codes:  Fire/burn",1
+"156","2605","External cause codes:  Firearm",2
+"157","2607","External cause codes:  Motor vehicle traffic (MVT)",22
+"158","2611","External cause codes:  Natural/environment",5
+"159","2614","External cause codes:  Struck by; against",3
+"160","2618","External cause codes:  Other specified and classifiable",3
+"161","2620","External cause codes:  Unspecified",4
+"162","29","Cancer of prostate",2
+"163","3","Bacterial infection; unspecified site",7
+"164","30","Cancer of testis",2
+"165","32","Cancer of bladder",11
+"166","33","Cancer of kidney and renal pelvis",10
+"167","35","Cancer of brain and nervous system",13
+"168","37","Hodgkin`s disease",10
+"169","38","Non-Hodgkin`s lymphoma",27
+"170","39","Leukemias",49
+"171","4","Mycoses",9
+"172","40","Multiple myeloma",10
+"173","41","Cancer; other and unspecified primary",1
+"174","42","Secondary malignancies",1
+"175","43","Malignant neoplasm without specification of site",136
+"176","44","Neoplasms of unspecified nature or uncertain behavior",7
+"177","45","Maintenance chemotherapy; radiotherapy",24
+"178","46","Benign neoplasm of uterus",8
+"179","47","Other and unspecified benign neoplasm",27
+"180","48","Thyroid disorders",8
+"181","49","Diabetes mellitus without complication",95
+"182","5","HIV infection",1
+"183","50","Diabetes mellitus with complications",41
+"184","51","Other endocrine disorders",31
+"185","52","Nutritional deficiencies",3
+"186","53","Disorders of lipid metabolism",17
+"187","54","Gout and other crystal arthropathies",14
+"188","55","Fluid and electrolyte disorders",74
+"189","57","Immunity disorders",2
+"190","58","Other nutritional; endocrine; and metabolic disorders",26
+"191","59","Deficiency and other anemia",63
+"192","6","Hepatitis",7
+"193","60","Acute posthemorrhagic anemia",10
+"194","61","Sickle cell anemia",22
+"195","62","Coagulation and hemorrhagic disorders",22
+"196","63","Diseases of white blood cells",90
+"197","64","Other hematologic conditions",3
+"198","649",NA,12
+"199","650","Adjustment disorders",9
+"200","651","Anxiety disorders",388
+"201","653","Delirium dementia and amnestic and other cognitive disorders",12
+"202","654","Developmental disorders",11
+"203","6541","Communication disorders",9
+"204","656","Impulse control disorders NEC",1
+"205","657","Mood disorders",80
+"206","6571","Bipolar disorders",23
+"207","6572","Depressive disorders",55
+"208","658","Personality disorders",4
+"209","659","Schizophrenia and other psychotic disorders",36
+"210","660","Alcohol-related disorders",73
+"211","661","Substance-related disorders",12
+"212","662","Suicide and intentional self-inflicted injury",3
+"213","663","Screening and history of mental health and substance abuse codes",2
+"214","6632","Codes related to substance-related disorders",2
+"215","670","Miscellaneous mental health disorders",113
+"216","6704","Psychogenic disorders",5
+"217","6707","Somatoform disorders",100
+"218","6709","Other miscellaneous mental conditions",5
+"219","7","Viral infection",234
+"220","76","Meningitis (except that caused by tuberculosis or sexually transmitted disease)",5
+"221","77","Encephalitis (except that caused by tuberculosis or sexually transmitted disease)",5
+"222","78","Other CNS infection and poliomyelitis",2
+"223","79","Parkinson`s disease",16
+"224","8","Other infections; including parasitic",18
+"225","80","Multiple sclerosis",23
+"226","81","Other hereditary and degenerative nervous system conditions",18
+"227","82","Paralysis",2
+"228","83","Epilepsy; convulsions",90
+"229","84","Headache; including migraine",839
+"230","85","Coma; stupor; and brain damage",91
+"231","86","Cataract",3
+"232","87","Retinal detachments; defects; vascular occlusion; and retinopathy",12
+"233","88","Glaucoma",11
+"234","89","Blindness and vision defects",40
+"235","9","Sexually transmitted infections (not HIV or hepatitis)",1
+"236","90","Inflammation; infection of eye (except that caused by tuberculosis or sexually transmitteddisease)",225
+"237","91","Other eye disorders",301
+"238","92","Otitis media and related conditions",74
+"239","93","Conditions associated with dizziness or vertigo",711
+"240","94","Other ear and sense organ disorders",275
+"241","95","Other nervous system disorders",306
+"242","96","Heart valve disorders",35
+"243","97","Peri-; endo-; and myocarditis; cardiomyopathy (except that caused by tuberculosis or sexually transmitted disease)",55
+"244","98","Essential hypertension",583
+"245","99","Hypertension with complications and secondary hypertension",28
