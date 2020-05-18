@@ -217,13 +217,13 @@ generateOdds_5z <- function(i,matDat,totals,expNames) {
   cases<- as.data.frame(cases)
   cases$batata <- as.numeric(totals[[2]])-cases[1]
   as.matrix(cases)
-  oddsratio.midp(as.matrix(cases))
+  epitools::oddsratio.midp(as.matrix(cases))
   
   tapw <- expNames
   outc <- c("Case", "Control")
   dat <- as.matrix(cases)
   dimnames(dat) <- list("exposure" = tapw, "Outcome" = outc)
-  x<-oddsratio(dat, rev="c",)
+  x<-epitools::oddsratio(dat, rev="c",)
   
   y<-as.data.frame(cbind(dat,x$measure,x$p.value))
   y$exposure <- rownames(y)
