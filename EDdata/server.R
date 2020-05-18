@@ -1,6 +1,6 @@
 load(file="processedData/admissions_2009_2010_clean")
 load(file="processedData/admissions_2018_2019_clean")
-setwd("~/genRepo/AUBMC_health_vs-AQ/EDdata")
+#setwd("~/genRepo/AUBMC_health_vs-AQ/EDdata")
 source("funs.R")
 
  function(input, output, session) {
