@@ -153,7 +153,7 @@ source("funs.R")
              addressList <- input$address
              genderList <- input$gender
              rv$plotvals <- oddsRatioDat(df2009,df2018, mindate09, maxdate09,
-                                         mindate18,maxdate18,minage,maxage,addressList,genderList)
+                                         mindate18,maxdate18,minage,maxage,addressList,genderList,dispositionList)
              })
  
      
