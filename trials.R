@@ -18,82 +18,69 @@ genderList <- c("M","F", "Other")
 dispositionList <- disposition
 n <- 20
 sortBY <- "count"
-df2009 %>%
-  filter(admissionDate>mindate09,
-         admissionDate<maxdate09,
-         age<maxage,
-         age>minage,
-         address %in% addressList,
-         disposition %in% dispositionList,
-         sex %in% genderList)%>%
-  group_by(ccsCodeDesc)%>%
-  summarize(count09 = n()) ->count09
-n09<-sum(count09$count09)
+df2009x <- df2009
+df2018x <- df2018
 
-df2018 %>%
-  filter(admissionDate>mindate18,
-         admissionDate<maxdate18,
-         disposition %in% dispositionList,
-         age<maxage,
-         age>minage,
-         address %in% addressList,
-         sex %in% genderList)%>%
+->a
+->b
+rbind(df2009x%>%
+        filter(
+          admissionDate>mindate09,
+          admissionDate<maxdate09,
+          age<maxage,
+          age>minage,
+          address %in% addressList,
+          disposition %in% dispositionList,
+          sex %in% genderList
+        ),
+      df2018x%>%
+        filter(
+          admissionDate>mindate18,
+          admissionDate<maxdate18,
+          age<maxage,
+          age>minage,
+          address %in% addressList,
+          disposition %in% dispositionList,
+          sex %in% genderList
+        ))%>%
   group_by(ccsCodeDesc)%>%
-  summarize(count18 = n()) ->count18
-n18<-sum(count18$count18)
-full_join(count18,count09)%>%
-  replace_na (list(count09 = 0, count18 =0))%>%
-  mutate(count = count09+count18,ccsCodeDesc = as.character(ccsCodeDesc))%>%
-  arrange(desc(!!as.name(sortBY)))->counts
-counts<-counts[1:n,]
-ccsOrder <- as.character(counts$ccsCodeDesc)
-
-counts %>%
-  mutate(count18 = -as.numeric(count18))%>%
-  mutate(count09 = 1000*as.numeric(count09)/n09,count18 = 1000*as.numeric(count18)/n18)%>%
+  summarize(count =n())%>%
+  arrange(desc(count))%>%
   select(-count)%>%
-  rename(`2009-2010` = count09, `2018-2019` = count18)%>%
-  melt(id = "ccsCodeDesc")%>%
-  mutate(ccsCodeDesc = as.factor(ccsCodeDesc))->counts#%>%
-#filter(value >= n|value <= -n)->counts
+  unique()%>%
+  as.list()%>%
+  unname()%>%
+  unlist->t
 
-counts$ccsCodeDesc <- factor(counts$ccsCodeDesc,levels = ccsOrder)
 
-p<-ggplot(counts,aes(x=ccsCodeDesc, y=value, fill= variable, text=paste0(round(abs(value),2)," per 1000 cases of \n",ccsCodeDesc, " in ",variable)))+
-  geom_bar(stat = "identity", position = "identity",width=0.6)+
-  geom_text(aes(label=round(abs(value),2)),vjust = ifelse(counts$value >= 0, 0.5, 0.5),size=2.5) +
-  scale_y_continuous(labels=abs)+
-  scale_fill_discrete(name = "", labels = c("2018-2019", "2009-2010"))+
-  theme_light()+
-  xlab("CCS code")+
-  ylab("count")+
-  ggtitle("Occurrence per 1000 for selected filters")+
-  theme(axis.text.x = element_blank(),
-        axis.title = element_blank())+
-  coord_flip()
-p
+unlist(t)
+as.character(t)
+typeof(addressList)
 
-selectCount <- function(dtf,ageNum,gl){
-  if (gl == "l"){
-    return(
-      dtf%>%
-        filter(age < ageNum)%>%
-        group_by(ccsCode,ccsCodeDesc)%>%
-        summarize(count = n())
-    )
-  }else{
-    return(
-      dtf%>%
-        filter(age > ageNum)%>%
-        group_by(ccsCode,ccsCodeDesc)%>%
-        summarize(count = n())
-    )
-  }
-  
-  
-}
+ccsToChapter <- read.csv("dat/CCS to chapters.csv")
+ccsToChapter%>%
+  mutate(ccsCode = as.character(ccsCode),Chapter = as.character(Chapter)) ->ccsToChapter
+x<-left_join(df2009,ccsToChapter)
+x<-left_join(df2018,ccsToChapter)
+x%>% filter(is.na(Chapter))
 
-write.csv(selectCount(df2009,18,"l"),file = "processedData/2009pedCount.csv")
-write.csv(selectCount(df2009,18,"g"),file = "processedData/2009adltCount.csv")
-write.csv(selectCount(df2018,18,"l"),file = "processedData/2018pedCount.csv")
-write.csv(selectCount(df2018,18,"g"),file = "processedData/2018adltCount.csv")
+df <- df2009
+
+
+
+xx<-codingSystem(df2009,"chapter")
+
+mindate09 <- input$dateRange09[1]
+maxdate09 <- input$dateRange09[2]
+mindate18 <- input$dateRange18[1]
+maxdate18 <- input$dateRange18[2]
+minage <- input$age[1]
+maxage <- input$age[2]
+addressList <- input$address
+genderList <- input$gender
+dispositionList <- input$disposition
+plotType <- input$plottype
+df2009x <- df2009
+df2018x <- df2018
+
+

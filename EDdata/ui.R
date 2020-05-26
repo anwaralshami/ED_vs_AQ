@@ -18,7 +18,10 @@ fluidPage(
         column(3,
                wellPanel(
                    h4("Filter"),
-                   
+                   selectInput("type", label = 'Coding system', 
+                               choices = list("CCS" = "ccs",
+                                              "Chapters" = "chapter") 
+                               ),
                    dateRangeInput('dateRange09',
                                   label = 'Date range 09-10: yyyy-mm-dd',
                                   start = ymd(20091103), end = ymd(20100630)
@@ -54,8 +57,8 @@ fluidPage(
         column(9,
                tabsetPanel(type = "tabs",
                            tabPanel("Timeseries", 
-                                    selectInput("ccsCodeDesc", "CCS category",
-                                                ordered_ccs_codes),
+                                    selectInput("ccsCodeDesc", "Code",
+                                                ""),
                                     plotlyOutput("plot"),
                                     textOutput("textTS09"),
                                     textOutput("textTS18"),

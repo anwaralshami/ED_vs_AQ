@@ -4,6 +4,63 @@ load(file="processedData/admissions_2018_2019_clean")
 source("funs.R")
 
  function(input, output, session) {
+         df2009x <- reactive({
+                 type <- input$type
+                 #type <- "ccs"
+                 codingSystem(df2009, type)
+         })
+         df2018x <- reactive({
+                 type <- input$type
+                 #type <- "ccs"
+                 codingSystem(df2018, type)
+         })
+         
+         observeEvent(
+                 input$type,{
+                         mindate09 <- input$dateRange09[1]
+                         maxdate09 <- input$dateRange09[2]
+                         mindate18 <- input$dateRange18[1]
+                         maxdate18 <- input$dateRange18[2]
+                         minage <- input$age[1]
+                         maxage <- input$age[2]
+                         addressList <- input$address
+                         genderList <- input$gender
+                         dispositionList <- input$disposition
+                         plotType <- input$plottype
+                         df2009x <- df2009x()
+                         df2018x <- df2018x()
+                         rbind(df2009x%>%
+                                       filter(
+                                               admissionDate>mindate09,
+                                               admissionDate<maxdate09,
+                                               age<maxage,
+                                               age>minage,
+                                               address %in% addressList,
+                                               disposition %in% dispositionList,
+                                               sex %in% genderList
+                                       ),
+                               df2018x%>%
+                                       filter(
+                                               admissionDate>mindate18,
+                                               admissionDate<maxdate18,
+                                               age<maxage,
+                                               age>minage,
+                                               address %in% addressList,
+                                               disposition %in% dispositionList,
+                                               sex %in% genderList
+                                       ))%>%
+                                 group_by(ccsCodeDesc)%>%
+                                 summarize(count =n())%>%
+                                 arrange(desc(count))%>%
+                                 select(-count)%>%
+                                 unique()%>%
+                                 as.list()%>%
+                                 unname()%>%
+                                 unlist->t
+                        updateSelectInput(session, "ccsCodeDesc", "Code",
+                                   choices = t)
+                 })
+         
      
      output$plot <-renderPlotly({
          ccsCodeDescSelected <- input$ccsCodeDesc
@@ -17,14 +74,17 @@ source("funs.R")
          genderList <- input$gender
          dispositionList <- input$disposition
          plotType <- input$plottype
+         df2009x <- df2009x()
+         df2018x <- df2018x()
          
          
-         timeSeriesCCS(df2009,df2018,ccsCodeDescSelected, mindate09, maxdate09,
+         timeSeriesCCS(df2009x,df2018x,ccsCodeDescSelected, mindate09, maxdate09,
                        mindate18,maxdate18,minage,maxage,addressList,genderList,dispositionList,plotType)
          
                        
          
          })
+     
      output$plot2 <-renderPlot({
          #ccsCodeDescSelected <- input$ccsCodeDesc
          mindate09 <- input$dateRange09[1]
@@ -39,8 +99,10 @@ source("funs.R")
          n <- input$n
          sortBY <- input$sortBY#"count"
          #plotType <- input$plottype
+         df2009x <- df2009x()
+         df2018x <- df2018x()
          
-         pyramidPlot(df2009,df2018,mindate09, maxdate09,
+         pyramidPlot(df2009x,df2018x,mindate09, maxdate09,
                      mindate18,maxdate18,minage,maxage,addressList,genderList,dispositionList,n,sortBY)
          
          
@@ -57,7 +119,7 @@ source("funs.R")
              addressList <- input$address
              genderList <- input$gender
              dispositionList <- input$disposition
-             ncase09TS<-df2009 %>% 
+             ncase09TS<-df2009x() %>% 
                      filter(ccsCodeDesc == ccsCodeDescSelected,
                             admissionDate>mindate09,
                             admissionDate<maxdate09,
@@ -81,7 +143,7 @@ source("funs.R")
              maxage <- input$age[2]
              addressList <- input$address
              genderList <- input$gender
-             ncase18TS<-df2018 %>% 
+             ncase18TS<-df2018x() %>% 
                      filter(ccsCodeDesc == ccsCodeDescSelected,
                             admissionDate>mindate18,
                             admissionDate<maxdate18,
@@ -105,7 +167,7 @@ source("funs.R")
              maxage <- input$age[2]
              genderList <- input$gender
              addressList <- input$address
-             ncase09TS<-df2009 %>% 
+             ncase09TS<-df2009x() %>% 
                      filter(admissionDate>mindate09,
                             admissionDate<maxdate09,
                             age<maxage,
@@ -128,7 +190,7 @@ source("funs.R")
              minage <- input$age[1]
              maxage <- input$age[2]
              addressList <- input$address
-             ncase18TS<-df2018 %>% 
+             ncase18TS<-df2018x() %>% 
                      filter(admissionDate>mindate18,
                             admissionDate<maxdate18,
                             age<maxage,
@@ -152,10 +214,11 @@ source("funs.R")
              maxage <- input$age[2]
              min09 <- input$min09
              min18 <- input$min18
-                     
+             df2009x <- df2009x()
+             df2018x <- df2018x()
              addressList <- input$address
              genderList <- input$gender
-             rv$plotvals <- oddsRatioDat(df2009,df2018, mindate09, maxdate09,
+             rv$plotvals <- oddsRatioDat(df2009x,df2018x, mindate09, maxdate09,
                                          mindate18,maxdate18,minage,maxage,addressList,
                                          genderList,dispositionList,min09,min18)
              })

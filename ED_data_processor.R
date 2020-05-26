@@ -25,6 +25,9 @@ ccsDesc <- read.xlsx("dat/ccs_code_desc.xlsx",sheet=1)
 #df2009x <- read.xlsx(xlsxFile = "dat/FINAL coded 1.XLSX",sheet = 1)
 df2009x <- read.csv("dat/emptyfilled.csv",stringsAsFactors = FALSE)
 df2009y <- read.xlsx(xlsxFile = "dat/CCS Code.XLSX",sheet = 1)
+ccsToChapter <- read.csv("dat/CCS to chapters.csv")
+ccsToChapter%>%
+  mutate(ccsCode = as.character(ccsCode),Chapter = as.character(Chapter),ChapterDesc = as.character(ChapterDesc)) ->ccsToChapter
 
 ##### process 2018 -2019 #####
 ##### Fix admission dates 
@@ -145,7 +148,11 @@ df2018%>%
   mutate(ccsCode = as.character(ccsCode))->df2018
          
 
+##### add chapters ####
+df2009<-left_join(df2009,ccsToChapter)
+df2018<-left_join(df2018,ccsToChapter)
 ##### export datasets####
+
 save(df2009, file="EDdata/processedData/admissions_2009_2010_clean")
 save(df2018, file="EDdata/processedData/admissions_2018_2019_clean")
 rbind(df2018,df2009)%>%

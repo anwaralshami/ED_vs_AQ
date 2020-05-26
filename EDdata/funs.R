@@ -245,3 +245,20 @@ set_shiny_plot_height_with_respects_to_width <- function(session, output_width_n
   #round(as.numeric(width) *2)
   width
 }
+
+codingSystem <- function(df,codeSystem){
+  if (codeSystem == "ccs"){
+    return(
+      df%>%
+        select(-Chapter,-ChapterDesc)
+    )
+  }
+  if (codeSystem == "chapter"){
+    return(
+      df%>%
+        select(-ccsCode,-ccsCodeDesc)%>%
+        rename(ccsCode = Chapter, ccsCodeDesc = ChapterDesc)%>%
+        filter(!is.na(ccsCodeDesc))
+    )
+  }
+}
