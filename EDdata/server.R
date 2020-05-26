@@ -25,7 +25,7 @@ source("funs.R")
                        
          
          })
-     output$plot2 <-renderPlotly({
+     output$plot2 <-renderPlot({
          #ccsCodeDescSelected <- input$ccsCodeDesc
          mindate09 <- input$dateRange09[1]
          maxdate09 <- input$dateRange09[2]
@@ -36,15 +36,16 @@ source("funs.R")
          addressList <- input$address
          genderList <- input$gender
          dispositionList <- input$disposition
-         n <- 20
+         n <- input$n
+         sortBY <- input$sortBY#"count"
          #plotType <- input$plottype
          
          pyramidPlot(df2009,df2018,mindate09, maxdate09,
-                     mindate18,maxdate18,minage,maxage,addressList,genderList,dispositionList,n)
+                     mindate18,maxdate18,minage,maxage,addressList,genderList,dispositionList,n,sortBY)
          
          
          
-     })
+     },height = function(){as.numeric(session$clientData$output_plot2_height)*input$n/20 })
      output$textTS09 <- renderText({
              ccsCodeDescSelected <- input$ccsCodeDesc
              mindate09 <- input$dateRange09[1]
@@ -149,11 +150,14 @@ source("funs.R")
              dispositionList <- input$disposition
              minage <- input$age[1]
              maxage <- input$age[2]
-             
+             min09 <- input$min09
+             min18 <- input$min18
+                     
              addressList <- input$address
              genderList <- input$gender
              rv$plotvals <- oddsRatioDat(df2009,df2018, mindate09, maxdate09,
-                                         mindate18,maxdate18,minage,maxage,addressList,genderList,dispositionList)
+                                         mindate18,maxdate18,minage,maxage,addressList,
+                                         genderList,dispositionList,min09,min18)
              })
  
      

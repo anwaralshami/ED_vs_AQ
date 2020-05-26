@@ -2,6 +2,7 @@ load(file="admissions_2009_2010_clean")
 load(file="processedData/admissions_2018_2019_clean")
 load(file = "processedData/ordered_ccs_codes")
 load(file = "processedData/address")
+load(file = "processedData/disposition")
 
 source("funs.R")
 ###### Merge years and align dates for plotting ######
@@ -14,37 +15,63 @@ minage <-50
 maxage <-60
 addressList <- address
 genderList <- c("M","F", "Other")
+dispositionList <- disposition
 n <- 20
+sortBY <- "count"
+df2009 %>%
+  filter(admissionDate>mindate09,
+         admissionDate<maxdate09,
+         age<maxage,
+         age>minage,
+         address %in% addressList,
+         disposition %in% dispositionList,
+         sex %in% genderList)%>%
+  group_by(ccsCodeDesc)%>%
+  summarize(count09 = n()) ->count09
+n09<-sum(count09$count09)
 
-test <- df2009x
-test %>%
-  select(CASENO, ADMISSION.DATE,MARITAL.STATUS, AGE, SEX, DISPOSITION, ADDRESS.1,ICD9CM.1)%>%
-  mutate(ADMISSION.DATE = as_date(ymd(paste0("20",df2009x$ADMISSION.DATE)))) %>%
-  mutate(ADDRESS.1 = tolower(trimws(as.character(ADDRESS.1))))%>%
-  mutate(ADDRESS.1 = if_else(ADDRESS.1 %in% c("balback hermil","balbaak"),"balbaak hermel",ADDRESS.1))%>%
-  mutate(ADDRESS.1 = if_else(ADDRESS.1 %in% c("beirut","beiurt"),"beirut",ADDRESS.1))%>%
-  mutate(ADDRESS.1 = na_if(ADDRESS.1, ""))%>%
-  mutate(ADDRESS.1 = if_else(ADDRESS.1 %in% c("akkar","akaar"),"akkar",ADDRESS.1))%>%
-  filter(ADDRESS.1 != "not lebanese")%>%
-  rename(age = AGE, sex = SEX, admissionDate = ADMISSION.DATE,
-         address = ADDRESS.1, icdCode = ICD9CM.1, disposition = DISPOSITION,
-         maritalStatus = MARITAL.STATUS)%>%
-  mutate(icdCode = trimws(icdCode))%>%
-  mutate(icdCodeType = "ICD9CM")%>%
-  select(CASENO,icdCode,icdCodeType)%>%
-  left_join(ccsMap,by = c("icdCode","icdCodeType"))%>%
-  filter(is.na(ccsCode))%>%
-  distinct(icdCode)
-test2 <- read.csv("dat/emptyfilled.csv",stringsAsFactors = FALSE)
-test2 %>%
-  mutate(ccsCode = as.character(ccsCode))%>%
-  select(admissionDate,age,sex,address,disposition,icdCode,icdCodeType,ccsCode)->df2009x1
+df2018 %>%
+  filter(admissionDate>mindate18,
+         admissionDate<maxdate18,
+         disposition %in% dispositionList,
+         age<maxage,
+         age>minage,
+         address %in% addressList,
+         sex %in% genderList)%>%
+  group_by(ccsCodeDesc)%>%
+  summarize(count18 = n()) ->count18
+n18<-sum(count18$count18)
+full_join(count18,count09)%>%
+  replace_na (list(count09 = 0, count18 =0))%>%
+  mutate(count = count09+count18,ccsCodeDesc = as.character(ccsCodeDesc))%>%
+  arrange(desc(!!as.name(sortBY)))->counts
+counts<-counts[1:n,]
+ccsOrder <- as.character(counts$ccsCodeDesc)
 
-rbind(df2009x1,df2009y1)%>%
-  filter(is.na(ccsCode))
+counts %>%
+  mutate(count18 = -as.numeric(count18))%>%
+  mutate(count09 = 1000*as.numeric(count09)/n09,count18 = 1000*as.numeric(count18)/n18)%>%
+  select(-count)%>%
+  rename(`2009-2010` = count09, `2018-2019` = count18)%>%
+  melt(id = "ccsCodeDesc")%>%
+  mutate(ccsCodeDesc = as.factor(ccsCodeDesc))->counts#%>%
+#filter(value >= n|value <= -n)->counts
 
-df2009%>%
-  filter(ccsCode == "7")
+counts$ccsCodeDesc <- factor(counts$ccsCodeDesc,levels = ccsOrder)
+
+p<-ggplot(counts,aes(x=ccsCodeDesc, y=value, fill= variable, text=paste0(round(abs(value),2)," per 1000 cases of \n",ccsCodeDesc, " in ",variable)))+
+  geom_bar(stat = "identity", position = "identity",width=0.6)+
+  geom_text(aes(label=round(abs(value),2)),vjust = ifelse(counts$value >= 0, 0.5, 0.5),size=2.5) +
+  scale_y_continuous(labels=abs)+
+  scale_fill_discrete(name = "", labels = c("2018-2019", "2009-2010"))+
+  theme_light()+
+  xlab("CCS code")+
+  ylab("count")+
+  ggtitle("Occurrence per 1000 for selected filters")+
+  theme(axis.text.x = element_blank(),
+        axis.title = element_blank())+
+  coord_flip()
+p
 
 selectCount <- function(dtf,ageNum,gl){
   if (gl == "l"){

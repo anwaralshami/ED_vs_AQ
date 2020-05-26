@@ -64,15 +64,34 @@ fluidPage(
                                     
                            ),
                            
-                           tabPanel("Case comparaison",plotlyOutput("plot2"),
+                           tabPanel("Case comparaison",
+                                    sliderInput("n", "",
+                                                min = 10, max = 50,pre = "top ",post = " codes",
+                                                value = 20,step = 10),
+                                    selectInput("sortBY", label = h4("Sort by"), 
+                                                choices = list("Cumulative" = "count",
+                                                               "2009-2010" = "count09", 
+                                                               "2018-2019" = "count18" 
+                                                               ), 
+                                                selected = 1),
                                     textOutput("textPR09"),
-                                    textOutput("textPR18")),
+                                    textOutput("textPR18"),
+                                    
+                                    plotOutput("plot2")
+                                    
+                                    ),
                            tabPanel("Odds ratios",
+                                    h4("Select the population you want to compute the odds ratios for using the the panel on the left"),
+                                    sliderInput("min09", "cases in 2009-2010",
+                                                min = 0, max = 500,pre = "more than ",post = " cases",
+                                                value = 50,step = 10),
+                                    sliderInput("min18", "cases in 2018-2019",
+                                                min = 0, max = 500,pre = "more than ",post = " cases",
+                                                value = 50,step = 10),
                                     tags$style(type="text/css",
                                                ".shiny-output-error { visibility: hidden; }",
                                                ".shiny-output-error:before { visibility: hidden; }"
                                     ),
-                                    
                                     h4("Press the button to start computation for selected filters, only results with significant p-values will plot"),
                                     h4("Computation might take a few minutes..."),
                                     actionButton(inputId = 'run',label = 'Compute Odds Ratios'),

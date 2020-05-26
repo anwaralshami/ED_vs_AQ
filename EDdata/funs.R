@@ -81,7 +81,8 @@ timeSeriesCCS <- function(df2009,df2018,ccsCodeDescSelected, mindate09, maxdate0
 }
 
 pyramidPlot <- function(df2009,df2018,mindate09, maxdate09,
-                        mindate18,maxdate18,minage,maxage,addressList,genderList,dispositionList,n){
+                        mindate18,maxdate18,minage,maxage,addressList,genderList,
+                        dispositionList,n,sortBY){
   df2009 %>%
     filter(admissionDate>mindate09,
            admissionDate<maxdate09,
@@ -108,8 +109,8 @@ pyramidPlot <- function(df2009,df2018,mindate09, maxdate09,
   full_join(count18,count09)%>%
     replace_na (list(count09 = 0, count18 =0))%>%
     mutate(count = count09+count18,ccsCodeDesc = as.character(ccsCodeDesc))%>%
-    arrange(desc(count))->counts
-  counts<-counts[1:20,]
+    arrange(desc(!!as.name(sortBY)))->counts
+  counts<-counts[1:n,]
   ccsOrder <- as.character(counts$ccsCodeDesc)
   
   counts %>%
@@ -125,23 +126,26 @@ pyramidPlot <- function(df2009,df2018,mindate09, maxdate09,
   
   p<-ggplot(counts,aes(x=ccsCodeDesc, y=value, fill= variable, text=paste0(round(abs(value),2)," per 1000 cases of \n",ccsCodeDesc, " in ",variable)))+
     geom_bar(stat = "identity", position = "identity",width=0.6)+
-    geom_text(aes(label=round(abs(value),2)),vjust = ifelse(counts$value >= 0, 0.5, 0.5),size=2.5) +
     scale_y_continuous(labels=abs)+
     scale_fill_discrete(name = "", labels = c("2018-2019", "2009-2010"))+
-    theme_light()+
+    
+    theme_light(base_size = 15)+
+    geom_text(aes(label=round(abs(value),2)),vjust = ifelse(counts$value >= 0, 0.5, 0.5),
+              size= 4) +
     xlab("CCS code")+
     ylab("count")+
     ggtitle("Occurrence per 1000 for selected filters")+
     theme(axis.text.x = element_blank(),
           axis.title = element_blank())+
     coord_flip()
-  
-  return(ggplotly(p,tooltip = "text")%>% config(displayModeBar = F))
+  return(p)
+  #return(ggplotly(p,tooltip = "text")%>% config(displayModeBar = F))
   
 }
 
 oddsRatioDat <- function(df2009,df2018, mindate09, maxdate09,
-                          mindate18,maxdate18,minage,maxage,addressList,genderList,dispositionList){
+                          mindate18,maxdate18,minage,maxage,addressList,genderList,
+                         dispositionList,min09,min18){
   df2009 %>%
     filter(admissionDate>mindate09,
            admissionDate<maxdate09,
@@ -151,7 +155,8 @@ oddsRatioDat <- function(df2009,df2018, mindate09, maxdate09,
            disposition %in% dispositionList,
            sex %in% genderList)%>%
     group_by(ccsCodeDesc)%>%
-    summarize(count09 = n()) ->count09
+    summarize(count09 = n())%>% 
+    filter(count09 >= min09)->count09
   
   
   df2018 %>%
@@ -163,7 +168,8 @@ oddsRatioDat <- function(df2009,df2018, mindate09, maxdate09,
            address %in% addressList,
            sex %in% genderList)%>%
     group_by(ccsCodeDesc)%>%
-    summarize(count18 = n()) ->count18
+    summarize(count18 = n())%>% 
+    filter(count18 >= min18) ->count18
   
   joinCounts <- inner_join(count09,count18)
   odds <- as.data.frame(select(joinCounts,-ccsCodeDesc))
