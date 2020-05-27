@@ -85,6 +85,8 @@ fluidPage(
                                     ),
                            tabPanel("Odds ratios",
                                     h4("Select the population you want to compute the odds ratios for using the the panel on the left"),
+                                    h4("ORs are calculated with reference to 2009-2010, OR>1 means higher risk in 2018-2019, 
+                                       while OR<1 means higher risk in 2009-2010"),
                                     sliderInput("min09", "cases in 2009-2010",
                                                 min = 0, max = 500,pre = "more than ",post = " cases",
                                                 value = 50,step = 10),
