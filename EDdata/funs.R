@@ -11,6 +11,56 @@ library(questionr)
 library(epitools)
 
 
+ageVsCCS <- function(df2009,df2018,ccsCodeDescSelected, mindate09, maxdate09,
+                     mindate18,maxdate18,minage,maxage,addressList,genderList,
+                     dispositionList,plotType){
+  df2018 %>% 
+    filter(ccsCodeDesc == ccsCodeDescSelected,
+           admissionDate>mindate18,
+           admissionDate<maxdate18,
+           age<maxage,
+           age>minage,
+           address %in% addressList,
+           disposition %in% dispositionList,
+           sex %in% genderList)%>%
+    mutate(date = admissionDate) %>%
+    #complete(date = seq.Date(min(date), max(date), by="day"))%>%
+    mutate(year = "2018-2019")-> df2018p
+  
+  df2009 %>% 
+    filter(ccsCodeDesc == ccsCodeDescSelected,
+           admissionDate>mindate09,
+           admissionDate<maxdate09,
+           disposition %in% dispositionList,
+           age<maxage,
+           age>minage,
+           address %in% addressList,
+           sex %in% genderList)%>%
+    mutate(date = admissionDate+years(9)) %>%
+    #complete(date = seq.Date(min(date), max(date), by="day"))%>%
+    mutate(year = "2009-2010")-> df2009p
+  
+  dfp <- rbind(df2009p,df2018p) #merged data frame for plotting
+  if (plotType == "frequency"){
+  dfp %>%
+    ggplot(aes(age, color = year)) +
+    geom_freqpoly(binwidth = 1)+
+    theme_bw() +
+    ggtitle(paste0("Admissions of ",ccsCodeDescSelected)) ->p
+  }
+  if (plotType == "density"){
+    dfp %>%
+      ggplot(aes(age, color = year)) +
+      geom_density()+
+      theme_bw() +
+      ggtitle(paste0("Admissions of ",ccsCodeDescSelected)) ->p
+  }
+  
+  
+  return(ggplotly(p)%>% config(displayModeBar = F))
+}
+
+
 timeSeriesCCS <- function(df2009,df2018,ccsCodeDescSelected, mindate09, maxdate09,
                           mindate18,maxdate18,minage,maxage,addressList,genderList,dispositionList,plotType){
   df2018 %>% 

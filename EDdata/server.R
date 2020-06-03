@@ -59,6 +59,8 @@ source("funs.R")
                                  unlist->t
                         updateSelectInput(session, "ccsCodeDesc", "Code",
                                    choices = t)
+                        updateSelectInput(session, "ccsCodeDescAge", "Code",
+                                          choices = t)
                  })
          
      
@@ -132,6 +134,32 @@ source("funs.R")
              paste0(ncase09TS, " cases in 2009-2010 for selected filters") 
              
      })
+     
+     output$plotAge <-renderPlotly({
+             ccsCodeDescSelected <- input$ccsCodeDescAge
+             mindate09 <- input$dateRange09[1]
+             maxdate09 <- input$dateRange09[2]
+             mindate18 <- input$dateRange18[1]
+             maxdate18 <- input$dateRange18[2]
+             minage <- input$age[1]
+             maxage <- input$age[2]
+             addressList <- input$address
+             genderList <- input$gender
+             dispositionList <- input$disposition
+             plotTypeAge <- input$plotTypeAge
+             df2009x <- df2009x()
+             df2018x <- df2018x()
+             
+             ageVsCCS(df2009x,df2018x,ccsCodeDescSelected, mindate09, maxdate09,
+                                  mindate18,maxdate18,minage,maxage,addressList,genderList,
+                      dispositionList,plotTypeAge)
+                     
+             
+            
+             
+             
+     })
+     
      output$textTS18 <- renderText({
              ccsCodeDescSelected <- input$ccsCodeDesc
              mindate09 <- input$dateRange09[1]

@@ -83,6 +83,13 @@ fluidPage(
                                     plotOutput("plot2")
                                     
                                     ),
+                           tabPanel("Age Comparaison", 
+                                    selectInput("ccsCodeDescAge", "Code",
+                                                ""),
+                                    selectInput("plotTypeAge", "Plot type", 
+                                                c("Frequency" = "frequency", "Density" = "density"), selected = "frequency"),
+                                    plotlyOutput("plotAge")
+                           ),
                            tabPanel("Odds ratios",
                                     h4("Select the population you want to compute the odds ratios for using the the panel on the left"),
                                     h4("ORs are calculated with reference to 2009-2010, OR>1 means higher risk in 2018-2019, 
