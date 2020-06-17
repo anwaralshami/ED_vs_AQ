@@ -90,6 +90,15 @@ fluidPage(
                                                 c("Frequency" = "frequency", "Density" = "density"), selected = "frequency"),
                                     plotlyOutput("plotAge")
                            ),
+                           
+                           tabPanel("Density facets", 
+                                    selectizeInput(
+                                        'ccsToFacet', 'CCS to include:', 
+                                        choices = ordered_ccs_codes, 
+                                        multiple = TRUE
+                                    ),
+                                    plotOutput("plotAgeDensFct")
+                           ),
                            tabPanel("Odds ratios",
                                     h4("Select the population you want to compute the odds ratios for using the the panel on the left"),
                                     h4("ORs are calculated with reference to 2009-2010, OR>1 means higher risk in 2018-2019, 

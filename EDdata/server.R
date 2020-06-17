@@ -61,6 +61,8 @@ source("funs.R")
                                    choices = t)
                         updateSelectInput(session, "ccsCodeDescAge", "Code",
                                           choices = t)
+                        # updateSelectizeInput(session, "ccsToFacet","CCS to include:",
+                        #                      choices = t)
                  })
          
      
@@ -110,6 +112,14 @@ source("funs.R")
          
          
      },height = function(){as.numeric(session$clientData$output_plot2_height)*input$n/20 })
+     
+     output$plotAgeDensFct <-renderPlot({
+             ccsList <- input$ccsToFacet
+                
+             ageVsCCS_facet(df2018,df2009,ccsList)
+             
+     })
+         
      output$textTS09 <- renderText({
              ccsCodeDescSelected <- input$ccsCodeDesc
              mindate09 <- input$dateRange09[1]

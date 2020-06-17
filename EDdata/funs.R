@@ -60,6 +60,32 @@ ageVsCCS <- function(df2009,df2018,ccsCodeDescSelected, mindate09, maxdate09,
   return(ggplotly(p)%>% config(displayModeBar = F))
 }
 
+ageVsCCS_facet <- function(df2018,df2009,ccsList){
+  df2018 %>% 
+    mutate(date = admissionDate) %>%
+    #complete(date = seq.Date(min(date), max(date), by="day"))%>%
+    mutate(year = "2018-2019")-> df2018p
+  
+  df2009 %>% 
+    mutate(date = admissionDate+years(9)) %>%
+    #complete(date = seq.Date(min(date), max(date), by="day"))%>%
+    mutate(year = "2009-2010")-> df2009p
+  
+  dfp <- rbind(df2009p,df2018p) #merged data frame for plotting
+  # dfp %>%
+  #       ggplot(aes(age, color = year)) +
+  #       geom_freqpoly(binwidth = 1)+
+  #       theme_bw() +
+  #       ggtitle(paste0("Admissions of "))+
+  #       facet_wrap(~ChapterDesc)
+  dfp %>%
+    dplyr::filter(ccsCodeDesc %in% ccsList)%>%
+    ggplot(aes(age, color = year)) +
+    geom_density()+
+    theme_bw() +
+    facet_grid(ChapterDesc~ccsCodeDesc)->p
+  return(p)
+}
 
 timeSeriesCCS <- function(df2009,df2018,ccsCodeDescSelected, mindate09, maxdate09,
                           mindate18,maxdate18,minage,maxage,addressList,genderList,dispositionList,plotType){

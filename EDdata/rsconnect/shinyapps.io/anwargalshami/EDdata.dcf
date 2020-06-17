@@ -5,9 +5,9 @@ account: anwargalshami
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2205893
-bundleId: 3162622
+bundleId: 3225317
 url: https://anwargalshami.shinyapps.io/EDdata/
-when: 1589820944.84904
+when: 1591217712.53958
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles: rsconnect_old/shinyapps.io/anwargalshami/EDdata.dcf
