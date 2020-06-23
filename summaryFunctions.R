@@ -6,7 +6,8 @@ library(ggpubr)
 source("EDdata/funs.R")
 load(file="EDdata/processedData/admissions_2009_2010_clean")
 load(file="EDdata/processedData/admissions_2018_2019_clean")
-
+load(file = "EDdata/processedData/address")
+load(file = "EDdata/processedData/disposition")
 ##### make combined df for summarizing  ######
 df2009 %>% 
   as_tibble()%>%
@@ -185,3 +186,76 @@ ggsave( "summaryTables/p18.jpg",mdcTree(df2018,"none"), device = "jpeg",dpi = "r
 ggsave( "summaryTables/p09.jpg",mdcTree(df2009,"none"), device = "jpeg",dpi = "retina",width = 4.74*5,height=2.28*5)  
 ggsave( "summaryTables/p18L.jpg",mdcTree(df2018,"right"), device = "jpeg",dpi = "retina",width = 4.74*5,height=2.28*5)  
 ggsave( "summaryTables/p09L.jpg",mdcTree(df2009,"right"), device = "jpeg",dpi = "retina",width = 4.74*5,height=2.28*5)  
+
+##### OR #####
+mindate09 <- ymd(20090630)
+maxdate09 <- ymd(20100630)
+mindate18 <- ymd(20181103)
+maxdate18 <- ymd(20191103)
+minage <-0
+maxage <-110
+addressList <- address
+genderList <- c("M","F", "Other")
+dispositionList <- disposition
+min09 <- 20 # diseases with a minimum number of cases
+min18 <- 20# diseases with a minimum number of cases
+maxP <- 0.001 #level of significance
+
+oddsRatioDatSummary<- function(df2009,df2018, mindate09, maxdate09,
+                         mindate18,maxdate18,minage,maxage,addressList,genderList,
+                         dispositionList,min09,min18,maxP){
+  df2009 %>%
+    filter(admissionDate>mindate09,
+           admissionDate<maxdate09,
+           age<maxage,
+           age>minage,
+           address %in% addressList,
+           disposition %in% dispositionList,
+           sex %in% genderList)%>%
+    group_by(ccsCodeDesc)%>%
+    summarize(count09 = n())%>% 
+    filter(count09 >= min09)->count09
+  
+  
+  df2018 %>%
+    filter(admissionDate>mindate18,
+           admissionDate<maxdate18,
+           disposition %in% dispositionList,
+           age<maxage,
+           age>minage,
+           address %in% addressList,
+           sex %in% genderList)%>%
+    group_by(ccsCodeDesc)%>%
+    summarize(count18 = n())%>% 
+    filter(count18 >= min18) ->count18
+  
+  joinCounts <- inner_join(count09,count18)
+  odds <- as.data.frame(select(joinCounts,-ccsCodeDesc))
+  rownames(odds)<-joinCounts$ccsCodeDesc
+  colnames(odds)<-c("2009-10","2018-19")
+  totals <- data.frame(EDyear = c("2009-10","2018-19"),
+                       EDcount = c(sum(odds$`2009-10`),sum(odds$`2018-19`))
+  )
+  oddsRatios <- generateOdds_5z(1,as.matrix(odds),totals,c("2009-10","2018-19"))                     
+  
+  for (i in 2:nrow(odds)){
+    #print(i)
+    oddsRatios<-rbind(oddsRatios,generateOdds_5z(i,as.matrix(odds),totals,c("2009-10","2018-19"))) 
+  }
+  
+  oddsRatios %>% 
+    filter(exposure == "2018-19")%>%
+    select(disease,Case,Control,estimate,lower,upper,midp.exact)%>%
+    filter(midp.exact <= maxP)%>%
+    mutate(disease = fct_reorder(disease, desc(estimate)))%>%
+    arrange((estimate))->oddsRatios2
+  
+  return(oddsRatios2)
+}
+
+ORdat<-oddsRatioDatSummary(df2009,df2018, mindate09, maxdate09,
+                         mindate18,maxdate18,minage,maxage,addressList,genderList,
+                         dispositionList,min09 ,min18, maxP)
+ORplot<-oddsRatioPlot(ORdat)
+ORplot
+ggsave( "summaryTables/ORs.jpg",ORplot, device = "jpeg",dpi = "retina",width = 4.74*3.5,height=2.28*3.5)  
