@@ -76,7 +76,7 @@ topReasons%>%
 
 ##### facet plots #####
 
-## shorten some ccs code Descriptions
+## shorten some ccs code Descriptions and subset age
 df2009 %>%
   mutate(ccsCodeDesc = ifelse(ccsCodeDesc == "Pneumonia (except that caused by tuberculosis or sexually transmitted disease)",
                               "Pneumonia",
@@ -90,7 +90,22 @@ df2018 %>%
                               ifelse(ccsCodeDesc == "Chronic obstructive pulmonary disease and bronchiectasis",
                                      "COPD and bronchiectasis",
                                      ifelse(ccsCodeDesc == "Coronary atherosclerosis and other heart disease",
-                                            "Coronary atherosclerosis",ccsCodeDesc))))->df2018y
+
+                                                                                        "Coronary atherosclerosis",ccsCodeDesc))))->df2018y
+subsetAge<-function(df,minAge,maxAge){
+  df %>%
+    mutate(ccsCodeDesc = ifelse(ccsCodeDesc == "Pneumonia (except that caused by tuberculosis or sexually transmitted disease)",
+                                "Pneumonia",
+                                ifelse(ccsCodeDesc == "Chronic obstructive pulmonary disease and bronchiectasis",
+                                       "COPD and bronchiectasis",
+                                       ifelse(ccsCodeDesc == "Coronary atherosclerosis and other heart disease",
+                                              
+                                              "Coronary atherosclerosis",ccsCodeDesc))))%>%
+    filter(age>minAge,
+           age<maxAge)->df
+  return(df)
+}
+
 # select ccs codes to plot, meke sure same number of plots per row for alignment
 ccsList <- list()
 ccsList[["Mental"]] <- c("Anxiety disorders", "Mood disorders", "Substance-related disorders","","","")
@@ -99,7 +114,7 @@ ccsList[["Endocrine"]] <- c("Thyroid disorders", "Diabetes mellitus with complic
 ccsList[["heart"]] <- c("Essential hypertension", "Coronary atherosclerosis", "Congestive heart failure; nonhypertensive", "Cardiac dysrhythmias", "Nonspecific chest pain","")
 ccsList[["Respiratory"]] <- c("Other upper respiratory disease", "Other upper respiratory infections", "Other lower respiratory disease", "Pneumonia", "Asthma", "COPD and bronchiectasis")
 
-ageDensity <- function(df2018,df2009,ccs,xTitle,lPos){
+ageDensity <- function(df2018,df2009,ccs,xTitle,lPos,minX,maxX){
   df2018 %>% 
     mutate(date = admissionDate) %>%
     #complete(date = seq.Date(min(date), max(date), by="day"))%>%
@@ -122,7 +137,7 @@ ageDensity <- function(df2018,df2009,ccs,xTitle,lPos){
     ggplot(aes(age, color = year)) +
     geom_density()+
     ggtitle(ccs)+
-    xlim(0,100)+
+    xlim(minX,maxX)+
     theme_minimal() +
     theme(legend.position = lPos,plot.title = element_text(size = 10),
           
@@ -137,28 +152,32 @@ ageDensity <- function(df2018,df2009,ccs,xTitle,lPos){
   
 }
 
-ageDensityPlotList <- function(df2018,df2009,ccsList,xTitle,lPos){
+ageDensityPlotList <- function(df2018,df2009,ccsList,xTitle,lPos,minX,maxX){
     xTitle <- xTitle
     lPos <- lPos
     pl<-sapply(ccsList, function(col) {
-      ageDensity(df2018,df2009,col,xTitle,lPos)
+      ageDensity(df2018,df2009,col,xTitle,lPos,minX,maxX)
     }, simplify=FALSE)
     
   return(pl)
 }
 
+plotAgeDensity <- function(df2009,df2018,minAge,maxAge,minX,maxX){
+  pa <- ggarrange(ggarrange(plotlist = ageDensityPlotList(subsetAge(df2018,minAge,maxAge), subsetAge(df2009,minAge,maxAge), ccsList$Mental , F, "null",minX,maxX),nrow = 1),
+                  ggarrange(plotlist = ageDensityPlotList(subsetAge(df2018,minAge,maxAge), subsetAge(df2009,minAge,maxAge), ccsList$Certain , F, "null",minX,maxX),nrow = 1),
+                  ggarrange(plotlist = ageDensityPlotList(subsetAge(df2018,minAge,maxAge), subsetAge(df2009,minAge,maxAge), ccsList$Endocrine , F, "null",minX,maxX),nrow = 1),
+                  ggarrange(plotlist = ageDensityPlotList(subsetAge(df2018,minAge,maxAge), subsetAge(df2009,minAge,maxAge), ccsList$heart , F, "null",minX,maxX),nrow = 1),
+                  ggarrange(plotlist = ageDensityPlotList(subsetAge(df2018,minAge,maxAge), subsetAge(df2009,minAge,maxAge), ccsList$Respiratory , T, "null",minX,maxX),nrow = 1),
+                  nrow = 5)  
+  return(pa)
+}
+
+
 #plot
-pa <- ggarrange(ggarrange(plotlist = ageDensityPlotList(df2018y, df2009y, ccsList$Mental , F, "null"),nrow = 1),
-                ggarrange(plotlist = ageDensityPlotList(df2018y, df2009y, ccsList$Certain , F, "null"),nrow = 1),
-                ggarrange(plotlist = ageDensityPlotList(df2018y, df2009y, ccsList$Endocrine , F, "null"),nrow = 1),
-                ggarrange(plotlist = ageDensityPlotList(df2018y, df2009y, ccsList$heart , F, "null"),nrow = 1),
-                ggarrange(plotlist = ageDensityPlotList(df2018y, df2009y, ccsList$Respiratory , T, "null"),nrow = 1),
-                nrow = 5)                
 
-ggsave(plot = ageDensity(df2018,df2009,ccs = "Asthma",F,lPos = "right"),device = "png",filename = "l.png",dpi = 1000)
-
-#save
-ggexport( pa, filename = "y.png",width = 1000*10,height = 468*10,res = 600)
+ggexport( plotAgeDensity(df2009,df2018,0,110,0,100), filename = "summaryTables/density.png",width = 1000*10,height = 468*10,res = 600)
+ggexport( plotAgeDensity(df2009,df2018,0,18,0,18), filename = "summaryTables/densityPeds.png",width = 1000*10,height = 468*10,res = 600)
+ggexport( plotAgeDensity(df2009,df2018,19,110,19,100), filename = "summaryTables/densityAdults.png",width = 1000*10,height = 468*10,res = 600)
 
 ##### treemaps #####
 mdcTree <- function (df, lp){
@@ -182,8 +201,14 @@ mdcTree <- function (df, lp){
           legend.position = lp)->p
   return(p)
 }
+
+ggsave( "summaryTables/treemMap18peds.jpg",mdcTree(subsetAge(df2018,0,18),"none"), device = "jpeg",dpi = "retina",width = 4.74*5,height=2.28*5)  
+ggsave( "summaryTables/treemMap09peds.jpg",mdcTree(subsetAge(df2009,0,18),"none"), device = "jpeg",dpi = "retina",width = 4.74*5,height=2.28*5)  
+ggsave( "summaryTables/treemMap18adults.jpg",mdcTree(subsetAge(df2018,19,110),"none"), device = "jpeg",dpi = "retina",width = 4.74*5,height=2.28*5)  
+ggsave( "summaryTables/treemMap09adults.jpg",mdcTree(subsetAge(df2009,19,110),"none"), device = "jpeg",dpi = "retina",width = 4.74*5,height=2.28*5)  
 ggsave( "summaryTables/p18.jpg",mdcTree(df2018,"none"), device = "jpeg",dpi = "retina",width = 4.74*5,height=2.28*5)  
 ggsave( "summaryTables/p09.jpg",mdcTree(df2009,"none"), device = "jpeg",dpi = "retina",width = 4.74*5,height=2.28*5)  
+
 ggsave( "summaryTables/p18L.jpg",mdcTree(df2018,"right"), device = "jpeg",dpi = "retina",width = 4.74*5,height=2.28*5)  
 ggsave( "summaryTables/p09L.jpg",mdcTree(df2009,"right"), device = "jpeg",dpi = "retina",width = 4.74*5,height=2.28*5)  
 
@@ -192,7 +217,7 @@ mindate09 <- ymd(20090630)
 maxdate09 <- ymd(20100630)
 mindate18 <- ymd(20181103)
 maxdate18 <- ymd(20191103)
-minage <-0
+minage <-19
 maxage <-110
 addressList <- address
 genderList <- c("M","F", "Other")
@@ -258,4 +283,5 @@ ORdat<-oddsRatioDatSummary(df2009,df2018, mindate09, maxdate09,
                          dispositionList,min09 ,min18, maxP)
 ORplot<-oddsRatioPlot(ORdat)
 ORplot
-ggsave( "summaryTables/ORs.jpg",ORplot, device = "jpeg",dpi = "retina",width = 4.74*3.5,height=2.28*3.5)  
+scaler <- 3
+ggsave( "summaryTables/ORadults.jpg",ORplot, device = "jpeg",dpi = "retina",width = 4.74*scaler,height=2.28*scaler)  
