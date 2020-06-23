@@ -83,4 +83,47 @@ plotType <- input$plottype
 df2009x <- df2009
 df2018x <- df2018
 
+library(treemapify)
+
+df2018%>%
+  as_tibble()%>%
+  mutate_if(sapply(df2009, is.character), as.factor)%>%
+  rename(chapter = Chapter,chapterDesc = ChapterDesc)%>%
+  group_by(chapter,ccsCode,ccsCodeDesc,chapterDesc)%>%
+  summarize(count = n()) %>%
+  as.data.frame()%>%
+  mutate(chapter = fct_explicit_na(chapter),
+         ccsCodeDesc = fct_explicit_na(ccsCodeDesc),
+         ccsCode = fct_explicit_na(ccsCode)) %>%
+  na.rm()%>%
+  ggplot( ggplot2::aes(area = count, fill = chapter, label = ccsCodeDesc, subgroup = chapterDesc)) +
+  geom_treemap(colour = "grey90",size=2)+
+  geom_treemap_text(fontface = "italic", colour = "white",
+                    grow = TRUE,place = "topleft", reflow = T)+
+  geom_treemap_subgroup_border()+
+  geom_treemap_subgroup_text(place = "centre", grow = T, alpha = 0.4, colour =
+                               "black", fontface = "italic", reflow = T, min.size = 0)+
+  theme(legend.position = "none")->p18
+
+df2009%>%
+  as_tibble()%>%
+  mutate_if(sapply(df2009, is.character), as.factor)%>%
+  rename(chapter = Chapter,chapterDesc = ChapterDesc)%>%
+  group_by(chapter,ccsCode,ccsCodeDesc,chapterDesc)%>%
+  summarize(count = n()) %>%
+  as.data.frame()%>%
+  mutate(chapter = fct_explicit_na(chapter),
+         ccsCodeDesc = fct_explicit_na(ccsCodeDesc),
+         ccsCode = fct_explicit_na(ccsCode)) %>%
+  na.rm()%>%
+  ggplot( ggplot2::aes(area = count, fill = chapter, label = ccsCodeDesc, subgroup = chapterDesc)) +
+  geom_treemap(colour = "grey90",size=2)+
+  geom_treemap_text(fontface = "italic", colour = "white",
+                    grow = TRUE,place = "topleft", reflow = T)+
+  geom_treemap_subgroup_border()+
+  geom_treemap_subgroup_text(place = "centre", grow = T, alpha = 0.4, colour =
+                               "black", fontface = "italic", reflow = T, min.size = 0)+
+  theme(legend.position = "none")->p09
+ggsave( "summaryTables/p18.jpg",p18, device = "jpeg",dpi = "retina",width = 4.74*5,height=2.28*5)  
+ggsave( "summaryTables/p09.jpg",p09, device = "jpeg",dpi = "retina",width = 4.74*5,height=2.28*5)  
 

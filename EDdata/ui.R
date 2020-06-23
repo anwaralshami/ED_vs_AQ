@@ -97,6 +97,7 @@ fluidPage(
                                         choices = ordered_ccs_codes, 
                                         multiple = TRUE
                                     ),
+                                    textOutput("selectionText"),
                                     plotOutput("plotAgeDensFct")
                            ),
                            tabPanel("Odds ratios",

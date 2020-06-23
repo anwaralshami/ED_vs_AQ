@@ -145,6 +145,11 @@ source("funs.R")
              
      })
      
+     output$selectionText <- renderText(
+             
+             paste("\"",paste0(input$ccsToFacet,sep = "\","),sep = "")
+     )
+     
      output$plotAge <-renderPlotly({
              ccsCodeDescSelected <- input$ccsCodeDescAge
              mindate09 <- input$dateRange09[1]

@@ -1,2 +1,0 @@
-#    name       date     time    value 
-
