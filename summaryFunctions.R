@@ -9,6 +9,10 @@ load(file="EDdata/processedData/admissions_2018_2019_clean")
 load(file = "EDdata/processedData/address")
 load(file = "EDdata/processedData/disposition")
 ##### make combined df for summarizing  ######
+df2009 %>%
+  filter( disposition %in% c("admitted","home","ama","death","transfer"))->df2009
+df2018%>%
+  filter( disposition %in% c("admitted","home","ama","death","transfer"))->df2018
 df2009 %>% 
   as_tibble()%>%
   mutate(Year = 2009)%>%
@@ -224,7 +228,7 @@ genderList <- c("M","F", "Other")
 dispositionList <- disposition
 min09 <- 20 # diseases with a minimum number of cases
 min18 <- 20# diseases with a minimum number of cases
-maxP <- 0.001 #level of significance
+maxP <- 0.05 #level of significance
 
 oddsRatioDatSummary<- function(df2009,df2018, mindate09, maxdate09,
                          mindate18,maxdate18,minage,maxage,addressList,genderList,
