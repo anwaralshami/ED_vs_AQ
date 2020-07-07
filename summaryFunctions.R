@@ -9,6 +9,10 @@ load(file="EDdata/processedData/admissions_2018_2019_clean")
 load(file = "EDdata/processedData/address")
 load(file = "EDdata/processedData/disposition")
 ##### make combined df for summarizing  ######
+df2009 %>%
+  filter( disposition %in% c("admitted","home","ama","death","transfer"))->df2009
+df2018%>%
+  filter( disposition %in% c("admitted","home","ama","death","transfer"))->df2018
 df2009 %>% 
   as_tibble()%>%
   mutate(Year = 2009)%>%
@@ -21,11 +25,10 @@ df2009 %>%
 df0918%>%
   #mutate(age_bin = binning(age,type = "equal",nbins = 7))%>%
   mutate(age_bin = ifelse(age>=0 & age <=5, "0-5",
-                          ifelse(age>=6 & age <=12, "6-12",
-                                 ifelse(age>=13 & age <=18, "13-18",
-                                        ifelse( age>=19 & age <=44, "19-44",
-                                                ifelse( age>=45 & age <=64, "45-64",
-                                                        ifelse(age>=65, ">65",NA)))))))%>%
+                          ifelse(age>=6 & age <=18, "6-18",
+                                 ifelse( age>=19 & age <=44, "19-44",
+                                              ifelse( age>=45 & age <=64, "45-64",
+                                                      ifelse(age>=65, ">65",NA))))))%>%
   group_by(age_bin,Year)%>%
   summarize(count = n())%>%
   spread(key = Year,value = count) %>%

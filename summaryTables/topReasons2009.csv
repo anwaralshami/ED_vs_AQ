@@ -1,277 +1,274 @@
-"","ccsCodeDesc",">65","0-5","13-18","19-44","45-64","6-12","<NA>"
-"1","Abdominal hernia",19,5,NA,20,10,NA,NA
-"2","Abdominal pain",277,126,187,1488,556,202,NA
-"3","Acquired foot deformities",NA,NA,NA,1,NA,NA,NA
-"4","Acute and chronic tonsillitis",5,146,25,156,12,83,NA
-"5","Acute and unspecified renal failure",26,NA,1,1,6,NA,NA
-"6","Acute bronchitis",7,76,3,10,8,4,NA
-"7","Acute cerebrovascular disease",81,NA,NA,9,29,NA,NA
-"8","Acute myocardial infarction",43,NA,NA,5,29,NA,NA
-"9","Acute posthemorrhagic anemia",8,NA,NA,1,1,NA,NA
-"10","Adjustment disorders",NA,NA,NA,9,NA,NA,NA
-"11","Administrative/social admission",NA,1,NA,2,NA,NA,NA
+"","ccsCodeDesc","0-5","13-18","19-44","45-64","6-12",">65","<NA>"
+"1","Abdominal hernia",5,NA,20,10,NA,19,NA
+"2","Abdominal pain",123,186,1446,541,200,272,NA
+"3","Acquired foot deformities",NA,NA,1,NA,NA,NA,NA
+"4","Acute and chronic tonsillitis",146,25,154,12,82,5,NA
+"5","Acute and unspecified renal failure",NA,1,1,6,NA,26,NA
+"6","Acute bronchitis",76,3,10,8,4,7,NA
+"7","Acute cerebrovascular disease",NA,NA,9,29,NA,81,NA
+"8","Acute myocardial infarction",NA,NA,5,29,NA,43,NA
+"9","Acute posthemorrhagic anemia",NA,NA,1,1,NA,8,NA
+"10","Adjustment disorders",NA,NA,9,NA,NA,NA,NA
+"11","Administrative/social admission",1,NA,2,NA,NA,NA,NA
 "12","Adverse effects of medical care",NA,NA,NA,NA,NA,NA,NA
 "13","Adverse effects of medical drugs",NA,NA,NA,NA,NA,NA,NA
-"14","Alcohol-related disorders",NA,NA,12,69,4,NA,NA
-"15","Allergic reactions",30,56,37,222,98,48,NA
-"16","Anal and rectal conditions",8,4,5,42,23,2,NA
-"17","Anxiety disorders",21,NA,22,290,77,7,NA
-"18","Aortic and peripheral arterial embolism or thrombosis",7,NA,NA,NA,4,NA,NA
-"19","Aortic; peripheral; and visceral artery aneurysms",7,NA,NA,NA,5,1,NA
-"20","Appendicitis and other appendiceal conditions",11,3,25,59,10,16,NA
-"21","Aspiration pneumonitis; food/vomitus",9,1,NA,NA,1,NA,NA
-"22","Asthma",26,116,33,60,30,93,NA
+"14","Alcohol-related disorders",NA,12,69,4,NA,NA,NA
+"15","Allergic reactions",56,37,221,98,48,30,NA
+"16","Anal and rectal conditions",4,5,40,22,2,8,NA
+"17","Anxiety disorders",NA,21,284,76,7,21,NA
+"18","Aortic and peripheral arterial embolism or thrombosis",NA,NA,NA,4,NA,7,NA
+"19","Aortic; peripheral; and visceral artery aneurysms",NA,NA,NA,5,1,7,NA
+"20","Appendicitis and other appendiceal conditions",3,25,59,10,16,11,NA
+"21","Aspiration pneumonitis; food/vomitus",1,NA,NA,1,NA,9,NA
+"22","Asthma",116,32,59,30,93,26,NA
 "23","Attention-deficit conduct and disruptive behavior disorders",NA,NA,NA,NA,NA,NA,NA
-"24","Bacterial infection; unspecified site",2,9,1,4,1,3,NA
-"25","Benign neoplasm of uterus",NA,NA,NA,4,4,NA,NA
-"26","Biliary tract disease",53,NA,NA,58,51,1,NA
-"27","Bipolar disorders",1,NA,1,16,6,NA,NA
-"28","Birth trauma",NA,1,NA,NA,NA,NA,NA
-"29","Blindness and vision defects",10,NA,1,21,9,5,NA
-"30","Burns",6,24,4,67,28,9,NA
-"31","Calculus of urinary tract",36,1,8,170,116,4,NA
-"32","Cancer of bladder",10,NA,NA,NA,1,NA,NA
-"33","Cancer of bone and connective tissue",NA,2,5,NA,NA,NA,NA
-"34","Cancer of brain and nervous system",1,5,8,6,6,3,NA
-"35","Cancer of breast",12,NA,NA,4,14,NA,NA
-"36","Cancer of bronchus; lung",6,NA,NA,2,4,NA,NA
-"37","Cancer of cervix",1,NA,NA,1,NA,NA,NA
+"24","Bacterial infection; unspecified site",9,1,4,1,3,2,NA
+"25","Benign neoplasm of uterus",NA,NA,4,4,NA,NA,NA
+"26","Biliary tract disease",NA,NA,58,51,1,53,NA
+"27","Bipolar disorders",NA,1,16,6,NA,1,NA
+"28","Birth trauma",1,NA,NA,NA,NA,NA,NA
+"29","Blindness and vision defects",NA,1,20,9,5,10,NA
+"30","Burns",24,4,66,28,9,6,NA
+"31","Calculus of urinary tract",1,8,170,116,4,36,NA
+"32","Cancer of bladder",NA,NA,NA,1,NA,10,NA
+"33","Cancer of bone and connective tissue",2,5,NA,NA,NA,NA,NA
+"34","Cancer of brain and nervous system",5,8,6,6,3,1,NA
+"35","Cancer of breast",NA,NA,4,14,NA,12,NA
+"36","Cancer of bronchus; lung",NA,NA,2,4,NA,6,NA
+"37","Cancer of cervix",NA,NA,1,NA,NA,1,NA
 "38","Cancer of colon",NA,NA,NA,NA,NA,NA,NA
-"39","Cancer of esophagus",NA,NA,NA,NA,1,NA,NA
-"40","Cancer of head and neck",2,NA,NA,NA,NA,NA,NA
-"41","Cancer of kidney and renal pelvis",6,2,NA,4,NA,NA,NA
-"42","Cancer of liver and intrahepatic bile duct",12,NA,NA,NA,1,NA,NA
-"43","Cancer of other GI organs; peritoneum",2,NA,NA,NA,1,NA,NA
+"39","Cancer of esophagus",NA,NA,NA,1,NA,NA,NA
+"40","Cancer of head and neck",NA,NA,NA,NA,NA,2,NA
+"41","Cancer of kidney and renal pelvis",2,NA,4,NA,NA,6,NA
+"42","Cancer of liver and intrahepatic bile duct",NA,NA,NA,1,NA,12,NA
+"43","Cancer of other GI organs; peritoneum",NA,NA,NA,1,NA,2,NA
 "44","Cancer of other urinary organs",NA,NA,NA,NA,NA,NA,NA
 "45","Cancer of ovary",NA,NA,NA,NA,NA,NA,NA
 "46","Cancer of pancreas",NA,NA,NA,NA,NA,NA,NA
-"47","Cancer of prostate",1,NA,NA,NA,1,NA,NA
+"47","Cancer of prostate",NA,NA,NA,1,NA,1,NA
 "48","Cancer of rectum and anus",NA,NA,NA,NA,NA,NA,NA
-"49","Cancer of stomach",1,NA,NA,NA,NA,NA,NA
-"50","Cancer of testis",1,NA,NA,1,NA,1,NA
+"49","Cancer of stomach",NA,NA,NA,NA,NA,1,NA
+"50","Cancer of testis",NA,NA,1,NA,1,1,NA
 "51","Cancer of thyroid",NA,NA,NA,NA,NA,NA,NA
-"52","Cancer of uterus",1,NA,NA,NA,NA,NA,NA
-"53","Cancer; other and unspecified primary",1,3,2,NA,NA,2,NA
-"54","Cardiac and circulatory congenital anomalies",2,45,3,4,3,6,NA
-"55","Cardiac arrest and ventricular fibrillation",40,NA,1,7,12,NA,NA
-"56","Cardiac dysrhythmias",202,5,18,271,162,8,NA
-"57","Cataract",1,NA,NA,NA,2,NA,NA
-"58","Chronic kidney disease",35,NA,NA,3,15,NA,NA
-"59","Chronic obstructive pulmonary disease and bronchiectasis",111,32,1,19,46,7,NA
-"60","Chronic ulcer of skin",5,1,NA,2,3,NA,NA
-"61","Coagulation and hemorrhagic disorders",5,8,3,14,3,7,NA
-"62","Codes related to substance-related disorders",1,NA,NA,NA,1,NA,NA
-"63","Coma; stupor; and brain damage",30,3,8,45,16,7,NA
-"64","Communication disorders",1,NA,NA,6,2,NA,NA
-"65","Complication of device; implant or graft",35,13,3,11,17,4,NA
-"66","Complications of surgical procedures or medical care",55,7,7,88,68,NA,NA
-"67","Conditions associated with dizziness or vertigo",170,2,34,318,223,13,NA
-"68","Conduction disorders",6,1,NA,NA,NA,NA,NA
-"69","Congestive heart failure; nonhypertensive",103,1,NA,1,18,NA,NA
-"70","Contraceptive and procreative management",NA,NA,NA,NA,NA,NA,NA
-"71","Coronary atherosclerosis and other heart disease",321,NA,NA,21,167,NA,NA
-"72","Crushing injury or internal injury",2,4,2,7,3,1,NA
-"73","Cystic fibrosis",NA,7,NA,NA,NA,1,NA
-"74","Deficiency and other anemia",30,7,2,17,16,4,NA
-"75","Delirium dementia and amnestic and other cognitive disorders",12,NA,NA,NA,NA,NA,NA
-"76","Depressive disorders",7,NA,1,31,17,NA,NA
-"77","Developmental disorders",1,NA,NA,8,2,NA,NA
-"78","Diabetes mellitus with complications",24,1,NA,5,12,1,NA
-"79","Diabetes mellitus without complication",44,1,1,11,40,2,NA
-"80","Digestive congenital anomalies",NA,4,NA,NA,NA,NA,NA
-"81","Diseases of mouth; excluding dental",5,12,5,18,7,4,NA
-"82","Diseases of white blood cells",26,47,25,34,30,57,NA
-"83","Disorders of lipid metabolism",4,NA,NA,2,11,NA,NA
-"84","Disorders of teeth and jaw",5,4,1,31,5,1,NA
-"85","Disorders usually diagnosed in infancy childhood or adolescence",NA,NA,NA,NA,NA,NA,NA
-"86","Diverticulosis and diverticulitis",12,NA,NA,6,17,NA,NA
-"87","Early or threatened labor",NA,NA,NA,3,NA,NA,NA
-"88","Ectopic pregnancy",NA,NA,NA,8,NA,NA,NA
-"89","Encephalitis (except that caused by tuberculosis or sexually transmitted disease)",1,NA,NA,1,3,NA,NA
-"90","Endometriosis",NA,NA,NA,4,1,NA,NA
-"91","Epilepsy; convulsions",18,56,22,57,15,23,NA
-"92","Esophageal disorders",9,23,4,41,13,2,NA
-"93","Essential hypertension",301,NA,1,38,244,NA,NA
-"94","External cause codes:  Cut/pierce",NA,1,2,2,1,2,NA
-"95","External cause codes:  Fall",14,5,NA,4,5,3,NA
-"96","External cause codes:  Fire/burn",NA,NA,NA,1,NA,NA,NA
-"97","External cause codes:  Firearm",NA,1,NA,1,1,NA,NA
-"98","External cause codes:  Machinery",NA,2,NA,NA,NA,NA,NA
-"99","External cause codes:  Motor vehicle traffic (MVT)",2,NA,4,15,5,NA,NA
-"100","External cause codes:  Natural/environment",1,NA,NA,2,2,NA,NA
-"101","External cause codes:  Other specified and classifiable",1,NA,NA,1,1,NA,NA
-"102","External cause codes:  Pedal cyclist; not MVT",NA,NA,NA,NA,NA,NA,NA
-"103","External cause codes:  Pedestrian; not MVT",NA,1,1,NA,NA,NA,NA
-"104","External cause codes:  Place of occurrence",NA,NA,NA,NA,NA,NA,NA
-"105","External cause codes:  Struck by; against",NA,NA,1,3,NA,NA,NA
-"106","External cause codes:  Unspecified",3,NA,NA,1,NA,1,NA
-"107","Female infertility",NA,NA,NA,NA,NA,NA,NA
-"108","Fetopelvic disproportion; obstruction",NA,NA,NA,1,2,NA,NA
-"109","Fever of unknown origin",106,1304,263,633,146,657,NA
-"110","Fluid and electrolyte disorders",37,6,5,23,14,2,NA
-"111","Fracture of lower limb",50,21,40,170,116,38,NA
-"112","Fracture of neck of femur (hip)",66,NA,NA,5,7,NA,NA
-"113","Fracture of upper limb",110,60,109,169,121,131,NA
-"114","Gangrene",1,NA,NA,NA,NA,NA,NA
-"115","Gastritis and duodenitis",14,38,16,61,18,24,NA
-"116","Gastroduodenal ulcer (except hemorrhage)",1,NA,NA,3,1,NA,NA
-"117","Gastrointestinal hemorrhage",42,11,4,20,17,2,NA
-"118","Genitourinary congenital anomalies",1,NA,NA,1,NA,NA,NA
-"119","Genitourinary symptoms and ill-defined conditions",145,20,21,116,78,24,NA
-"120","Glaucoma",4,NA,NA,1,6,NA,NA
-"121","Gout and other crystal arthropathies",5,NA,NA,2,7,NA,NA
-"122","Headache; including migraine",67,13,75,556,216,72,NA
-"123","Heart valve disorders",24,NA,NA,2,9,NA,NA
-"124","Hemolytic jaundice and perinatal jaundice",NA,38,NA,NA,NA,NA,NA
-"125","Hemorrhage during pregnancy; abruptio placenta; placenta previa",NA,NA,1,111,NA,NA,NA
-"126","Hemorrhoids",6,NA,1,34,15,NA,NA
-"127","Hepatitis",2,1,2,5,NA,1,NA
-"128","HIV infection",NA,NA,NA,NA,1,NA,NA
-"129","Hodgkin`s disease",NA,NA,2,6,4,2,NA
-"130","Hyperplasia of prostate",20,NA,NA,NA,5,NA,NA
-"131","Hypertension complicating pregnancy; childbirth and the puerperium",NA,NA,NA,2,NA,NA,NA
-"132","Hypertension with complications and secondary hypertension",22,NA,NA,NA,6,NA,NA
-"133","Immunity disorders",NA,NA,2,2,NA,NA,NA
-"134","Immunizations and screening for infectious disease",2,2,NA,1,1,NA,NA
-"135","Impulse control disorders NEC",NA,NA,NA,1,NA,NA,NA
-"136","Induced abortion",NA,NA,NA,41,NA,NA,NA
-"137","Infective arthritis and osteomyelitis (except that caused by tuberculosis or sexually transmitted disease)",3,NA,NA,4,1,2,NA
-"138","Inflammation; infection of eye (except that caused by tuberculosis or sexually transmitteddisease)",16,25,21,161,48,16,NA
-"139","Inflammatory conditions of male genital organs",17,3,3,17,14,2,NA
-"140","Inflammatory diseases of female pelvic organs",NA,1,1,15,6,NA,NA
-"141","Influenza",3,36,9,23,6,32,NA
-"142","Intestinal infection",20,134,45,151,31,49,NA
-"143","Intestinal obstruction without hernia",20,1,2,10,20,3,NA
-"144","Intracranial injury",15,14,5,44,19,4,NA
-"145","Intrauterine hypoxia and birth asphyxia",NA,1,NA,NA,NA,NA,NA
-"146","Joint disorders and dislocations; trauma-related",8,79,9,38,15,6,NA
-"147","Late effects of cerebrovascular disease",4,NA,NA,NA,NA,NA,NA
-"148","Leukemias",14,33,12,26,9,26,NA
-"149","Liveborn",NA,6,NA,NA,NA,NA,NA
-"150","Lung disease due to external agents",1,NA,NA,1,1,NA,NA
-"151","Lymphadenitis",2,5,4,15,1,7,NA
-"152","Maintenance chemotherapy; radiotherapy",11,2,2,5,8,8,NA
-"153","Malaise and fatigue",54,5,11,106,63,4,NA
-"154","Malignant neoplasm without specification of site",74,NA,1,11,51,1,NA
-"155","Malposition; malpresentation",NA,NA,NA,NA,1,NA,NA
-"156","Medical examination/evaluation",2,22,22,30,6,35,NA
-"157","Melanomas of skin",NA,NA,NA,NA,NA,NA,NA
-"158","Meningitis (except that caused by tuberculosis or sexually transmitted disease)",1,9,1,3,1,4,NA
-"159","Menopausal disorders",1,NA,NA,NA,3,NA,NA
-"160","Menstrual disorders",NA,NA,4,66,9,NA,NA
-"161","Miscellaneous mental health disorders",6,2,12,75,32,1,NA
-"162","Mood disorders",8,NA,2,49,23,NA,NA
-"163","Multiple myeloma",6,NA,NA,NA,4,NA,NA
-"164","Multiple sclerosis",4,2,NA,14,5,NA,NA
-"165","Mycoses",1,1,NA,7,1,NA,NA
-"166","Nausea and vomiting",91,199,62,360,74,99,NA
-"167","Neoplasms of unspecified nature or uncertain behavior",6,NA,NA,NA,1,3,NA
-"168","Nephritis; nephrosis; renal sclerosis",NA,1,NA,1,1,NA,NA
-"169","Nervous system congenital anomalies",NA,2,NA,NA,NA,NA,NA
-"170","Non-Hodgkin`s lymphoma",9,1,1,9,9,1,NA
-"171","Noninfectious gastroenteritis",86,281,96,629,145,120,NA
-"172","Nonmalignant breast conditions",2,1,2,15,4,NA,NA
-"173","Nonspecific chest pain",207,4,42,455,461,25,NA
-"174","Nutritional deficiencies",2,2,NA,1,NA,NA,NA
-"175","Occlusion or stenosis of precerebral arteries",5,NA,NA,NA,1,NA,NA
-"176","Open wounds of extremities",45,43,97,496,135,74,NA
-"177","Open wounds of head; neck; and trunk",83,325,49,229,90,155,NA
-"178","Osteoarthritis",11,NA,NA,1,2,NA,NA
-"179","Osteoporosis",4,NA,NA,NA,1,NA,NA
-"180","Other acquired deformities",NA,NA,NA,2,1,2,NA
-"181","Other aftercare",7,47,20,20,6,41,NA
-"182","Other and ill-defined cerebrovascular disease",12,NA,NA,2,6,NA,NA
-"183","Other and ill-defined heart disease",NA,NA,NA,NA,1,NA,NA
-"184","Other and unspecified benign neoplasm",11,2,2,10,6,1,NA
-"185","Other bone disease and musculoskeletal deformities",1,NA,1,12,2,1,NA
-"186","Other circulatory disease",36,5,2,23,22,2,NA
-"187","Other CNS infection and poliomyelitis",1,NA,NA,1,NA,NA,NA
-"188","Other complications of birth; puerperium affecting management of mother",NA,NA,NA,20,NA,NA,NA
-"189","Other complications of pregnancy",NA,NA,1,151,1,NA,NA
-"190","Other congenital anomalies",1,9,8,8,NA,2,NA
-"191","Other connective tissue disease",120,29,35,317,228,41,NA
-"192","Other diseases of bladder and urethra",3,NA,NA,NA,NA,NA,NA
-"193","Other diseases of kidney and ureters",8,NA,1,4,1,NA,NA
-"194","Other diseases of veins and lymphatics",1,1,NA,4,2,NA,NA
-"195","Other disorders of stomach and duodenum",2,1,NA,5,4,2,NA
-"196","Other ear and sense organ disorders",27,95,32,175,73,68,NA
-"197","Other endocrine disorders",10,NA,NA,12,9,2,NA
-"198","Other eye disorders",43,29,16,168,90,16,NA
-"199","Other female genital disorders",4,2,4,60,14,NA,NA
-"200","Other fractures",30,2,10,17,20,4,NA
-"201","Other gastrointestinal disorders",115,162,50,288,110,71,NA
-"202","Other hematologic conditions",1,1,1,1,1,NA,NA
-"203","Other hereditary and degenerative nervous system conditions",10,1,NA,4,4,NA,NA
-"204","Other infections; including parasitic",6,1,1,8,4,1,NA
-"205","Other inflammatory condition of skin",7,2,1,21,7,2,NA
-"206","Other injuries and conditions due to external causes",285,382,493,1950,582,456,NA
-"207","Other liver diseases",27,3,1,11,18,1,NA
-"208","Other lower respiratory disease",233,339,128,578,234,176,NA
-"209","Other male genital disorders",2,7,12,35,4,7,NA
-"210","Other miscellaneous mental conditions",NA,NA,NA,5,NA,NA,NA
-"211","Other nervous system disorders",55,7,24,153,98,10,NA
-"212","Other non-epithelial cancer of skin",9,NA,NA,1,7,NA,NA
-"213","Other non-traumatic joint disorders",69,26,28,207,107,30,NA
-"214","Other nutritional; endocrine; and metabolic disorders",9,11,1,8,9,6,NA
-"215","Other perinatal conditions",NA,31,NA,NA,NA,NA,NA
-"216","Other pregnancy and delivery including normal",NA,NA,NA,10,NA,NA,NA
-"217","Other screening for suspected conditions (not mental disorders or infectious disease)",1,17,2,19,7,3,NA
-"218","Other skin disorders",29,79,51,150,61,42,NA
-"219","Other upper respiratory disease",50,37,29,113,46,37,NA
-"220","Other upper respiratory infections",35,366,114,719,101,199,NA
-"221","Otitis media and related conditions",3,272,13,59,12,53,NA
-"222","Ovarian cyst",1,NA,2,16,2,NA,NA
-"223","Pancreatic disorders (not diabetes)",4,NA,1,5,9,1,NA
-"224","Paralysis",1,1,NA,NA,1,NA,NA
-"225","Parkinson`s disease",15,NA,NA,NA,1,NA,NA
-"226","Pathological fracture",8,NA,NA,2,2,1,NA
-"227","Peri-; endo-; and myocarditis; cardiomyopathy (except that caused by tuberculosis or sexually transmitted disease)",19,1,1,17,19,4,NA
-"228","Peripheral and visceral atherosclerosis",7,NA,NA,1,1,NA,NA
-"229","Peritonitis and intestinal abscess",2,NA,NA,NA,1,1,NA
-"230","Personality disorders",NA,NA,1,3,1,NA,NA
-"231","Phlebitis; thrombophlebitis and thromboembolism",14,NA,NA,5,8,NA,NA
-"232","Pleurisy; pneumothorax; pulmonary collapse",19,1,4,11,3,NA,NA
-"233","Pneumonia (except that caused by tuberculosis or sexually transmitted disease)",124,79,8,46,52,33,NA
-"234","Poisoning by nonmedicinal substances",6,10,2,32,13,1,NA
-"235","Poisoning by other medications and drugs",12,22,13,46,21,11,NA
-"236","Poisoning by psychotropic agents",3,1,1,23,5,NA,NA
-"237","Polyhydramnios and other problems of amniotic cavity",NA,NA,NA,3,NA,NA,NA
-"238","Previous C-section",NA,NA,NA,NA,NA,NA,NA
-"239","Prolapse of female genital organs",NA,NA,NA,NA,NA,NA,NA
-"240","Psychogenic disorders",NA,NA,2,3,2,NA,NA
-"241","Pulmonary heart disease",2,NA,NA,2,4,NA,NA
-"242","Regional enteritis and ulcerative colitis",3,NA,1,12,5,3,NA
-"243","Rehabilitation care; fitting of prostheses; and adjustment of devices",2,NA,NA,2,NA,NA,NA
-"244","Residual codes; unclassified",27,37,10,51,36,11,NA
-"245","Respiratory distress syndrome",NA,NA,NA,NA,NA,NA,NA
-"246","Respiratory failure; insufficiency; arrest (adult)",4,NA,2,2,1,1,NA
-"247","Retinal detachments; defects; vascular occlusion; and retinopathy",6,NA,NA,4,2,NA,NA
-"248","Rheumatoid arthritis and related disease",5,NA,NA,2,4,NA,NA
-"249","Schizophrenia and other psychotic disorders",2,NA,1,31,3,NA,NA
-"250","Screening and history of mental health and substance abuse codes",1,NA,NA,NA,1,NA,NA
-"251","Secondary malignancies",1,NA,NA,NA,NA,NA,NA
-"252","Septicemia (except in labor)",33,13,1,3,5,5,NA
-"253","Sexually transmitted infections (not HIV or hepatitis)",NA,NA,NA,1,NA,NA,NA
-"254","Shock",3,NA,NA,NA,1,NA,NA
-"255","Short gestation; low birth weight; and fetal growth retardation",NA,1,NA,NA,NA,NA,NA
-"256","Sickle cell anemia",NA,18,20,22,NA,41,NA
-"257","Skin and subcutaneous tissue infections",60,19,28,178,94,34,NA
-"258","Skull and face fractures",9,2,12,39,7,6,NA
-"259","Sleep disorders",NA,1,NA,NA,NA,NA,NA
-"260","Somatoform disorders",6,1,10,66,28,NA,NA
-"261","Spinal cord injury",NA,NA,NA,2,1,NA,NA
-"262","Spondylosis; intervertebral disc disorders; other back problems",110,3,39,461,258,26,NA
-"263","Spontaneous abortion",NA,NA,NA,4,NA,NA,NA
-"264","Sprains and strains",13,2,44,217,48,33,NA
-"265","Substance-related disorders",1,NA,2,9,2,NA,NA
-"266","Suicide and intentional self-inflicted injury",NA,NA,NA,3,NA,NA,NA
-"267","Superficial injury; contusion",48,85,67,278,89,86,NA
-"268","Syncope",73,3,23,123,73,4,NA
-"269","Systemic lupus erythematosus and connective tissue disorders",1,NA,4,3,4,NA,NA
-"270","Thyroid disorders",3,1,NA,3,2,NA,NA
-"271","Transient cerebral ischemia",21,NA,NA,1,14,NA,NA
-"272","Tuberculosis",1,1,NA,2,2,2,NA
-"273","Urinary tract infections",131,45,18,146,83,23,NA
-"274","Varicose veins of lower extremity",3,NA,NA,2,1,NA,NA
-"275","Viral infection",18,214,57,179,37,99,NA
-"276",NA,1,2,NA,9,2,2,NA
+"52","Cancer of uterus",NA,NA,NA,NA,NA,1,NA
+"53","Cancer; other and unspecified primary",3,2,NA,NA,2,1,NA
+"54","Cardiac and circulatory congenital anomalies",45,3,4,3,6,2,NA
+"55","Cardiac arrest and ventricular fibrillation",NA,1,7,12,NA,40,NA
+"56","Cardiac dysrhythmias",5,17,267,161,8,202,NA
+"57","Cataract",NA,NA,NA,2,NA,1,NA
+"58","Chronic kidney disease",NA,NA,3,15,NA,35,NA
+"59","Chronic obstructive pulmonary disease and bronchiectasis",31,1,19,46,7,111,NA
+"60","Chronic ulcer of skin",1,NA,2,2,NA,5,NA
+"61","Coagulation and hemorrhagic disorders",8,3,14,3,7,5,NA
+"62","Codes related to substance-related disorders",NA,NA,NA,1,NA,1,NA
+"63","Coma; stupor; and brain damage",3,8,43,15,7,28,NA
+"64","Communication disorders",NA,NA,6,2,NA,1,NA
+"65","Complication of device; implant or graft",13,3,11,17,4,35,NA
+"66","Complications of surgical procedures or medical care",7,7,88,68,NA,55,NA
+"67","Conditions associated with dizziness or vertigo",2,31,307,215,13,162,NA
+"68","Conduction disorders",1,NA,NA,NA,NA,6,NA
+"69","Congestive heart failure; nonhypertensive",1,NA,1,18,NA,103,NA
+"70","Coronary atherosclerosis and other heart disease",NA,NA,21,167,NA,321,NA
+"71","Crushing injury or internal injury",4,2,7,3,1,2,NA
+"72","Cystic fibrosis",7,NA,NA,NA,1,NA,NA
+"73","Deficiency and other anemia",7,2,17,15,4,30,NA
+"74","Delirium dementia and amnestic and other cognitive disorders",NA,NA,NA,NA,NA,12,NA
+"75","Depressive disorders",NA,1,31,17,NA,7,NA
+"76","Developmental disorders",NA,NA,6,2,NA,1,NA
+"77","Diabetes mellitus with complications",1,NA,5,12,1,24,NA
+"78","Diabetes mellitus without complication",1,1,11,39,2,44,NA
+"79","Digestive congenital anomalies",4,NA,NA,NA,NA,NA,NA
+"80","Diseases of mouth; excluding dental",12,5,18,7,4,5,NA
+"81","Diseases of white blood cells",47,25,34,30,56,26,NA
+"82","Disorders of lipid metabolism",NA,NA,2,11,NA,4,NA
+"83","Disorders of teeth and jaw",4,1,31,5,1,5,NA
+"84","Disorders usually diagnosed in infancy childhood or adolescence",NA,NA,NA,NA,NA,NA,NA
+"85","Diverticulosis and diverticulitis",NA,NA,6,17,NA,12,NA
+"86","Early or threatened labor",NA,NA,3,NA,NA,NA,NA
+"87","Ectopic pregnancy",NA,NA,8,NA,NA,NA,NA
+"88","Encephalitis (except that caused by tuberculosis or sexually transmitted disease)",NA,NA,1,3,NA,1,NA
+"89","Endometriosis",NA,NA,4,1,NA,NA,NA
+"90","Epilepsy; convulsions",56,21,57,15,23,18,NA
+"91","Esophageal disorders",23,4,39,13,2,9,NA
+"92","Essential hypertension",NA,1,37,240,NA,299,NA
+"93","External cause codes:  Cut/pierce",1,2,1,1,2,NA,NA
+"94","External cause codes:  Fall",5,NA,4,5,3,14,NA
+"95","External cause codes:  Firearm",1,NA,1,1,NA,NA,NA
+"96","External cause codes:  Fire/burn",NA,NA,1,NA,NA,NA,NA
+"97","External cause codes:  Machinery",2,NA,NA,NA,NA,NA,NA
+"98","External cause codes:  Motor vehicle traffic (MVT)",NA,2,10,3,NA,1,NA
+"99","External cause codes:  Natural/environment",NA,NA,NA,NA,NA,1,NA
+"100","External cause codes:  Other specified and classifiable",NA,NA,1,1,NA,1,NA
+"101","External cause codes:  Pedal cyclist; not MVT",NA,NA,NA,NA,NA,NA,NA
+"102","External cause codes:  Pedestrian; not MVT",1,1,NA,NA,NA,NA,NA
+"103","External cause codes:  Struck by; against",NA,1,3,NA,NA,NA,NA
+"104","External cause codes:  Unspecified",NA,NA,1,NA,1,2,NA
+"105","Female infertility",NA,NA,NA,NA,NA,NA,NA
+"106","Fetopelvic disproportion; obstruction",NA,NA,1,2,NA,NA,NA
+"107","Fever of unknown origin",1271,255,608,144,636,101,NA
+"108","Fluid and electrolyte disorders",5,5,23,14,2,37,NA
+"109","Fracture of lower limb",21,40,170,116,38,50,NA
+"110","Fracture of neck of femur (hip)",NA,NA,5,7,NA,66,NA
+"111","Fracture of upper limb",60,109,169,121,131,110,NA
+"112","Gangrene",NA,NA,NA,NA,NA,1,NA
+"113","Gastritis and duodenitis",38,16,60,18,24,14,NA
+"114","Gastroduodenal ulcer (except hemorrhage)",NA,NA,3,1,NA,1,NA
+"115","Gastrointestinal hemorrhage",11,4,20,17,2,42,NA
+"116","Genitourinary congenital anomalies",NA,NA,1,NA,NA,1,NA
+"117","Genitourinary symptoms and ill-defined conditions",20,20,110,76,24,142,NA
+"118","Glaucoma",NA,NA,1,6,NA,4,NA
+"119","Gout and other crystal arthropathies",NA,NA,2,7,NA,5,NA
+"120","Headache; including migraine",12,73,539,212,69,66,NA
+"121","Heart valve disorders",NA,NA,2,9,NA,24,NA
+"122","Hemolytic jaundice and perinatal jaundice",38,NA,NA,NA,NA,NA,NA
+"123","Hemorrhage during pregnancy; abruptio placenta; placenta previa",NA,1,111,NA,NA,NA,NA
+"124","Hemorrhoids",NA,1,34,15,NA,6,NA
+"125","Hepatitis",1,2,5,NA,1,2,NA
+"126","HIV infection",NA,NA,NA,1,NA,NA,NA
+"127","Hodgkin`s disease",NA,2,6,4,2,NA,NA
+"128","Hyperplasia of prostate",NA,NA,NA,5,NA,20,NA
+"129","Hypertension complicating pregnancy; childbirth and the puerperium",NA,NA,2,NA,NA,NA,NA
+"130","Hypertension with complications and secondary hypertension",NA,NA,NA,6,NA,22,NA
+"131","Immunity disorders",NA,2,2,NA,NA,NA,NA
+"132","Immunizations and screening for infectious disease",2,NA,1,1,NA,2,NA
+"133","Impulse control disorders NEC",NA,NA,1,NA,NA,NA,NA
+"134","Induced abortion",NA,NA,41,NA,NA,NA,NA
+"135","Infective arthritis and osteomyelitis (except that caused by tuberculosis or sexually transmitted disease)",NA,NA,4,1,2,3,NA
+"136","Inflammation; infection of eye (except that caused by tuberculosis or sexually transmitteddisease)",25,21,161,48,16,16,NA
+"137","Inflammatory conditions of male genital organs",3,3,15,14,2,17,NA
+"138","Inflammatory diseases of female pelvic organs",1,1,15,6,NA,NA,NA
+"139","Influenza",36,9,22,6,32,3,NA
+"140","Intestinal infection",134,45,151,31,49,20,NA
+"141","Intestinal obstruction without hernia",1,2,10,20,3,20,NA
+"142","Intracranial injury",14,5,44,19,4,15,NA
+"143","Intrauterine hypoxia and birth asphyxia",1,NA,NA,NA,NA,NA,NA
+"144","Joint disorders and dislocations; trauma-related",77,9,38,15,6,8,NA
+"145","Late effects of cerebrovascular disease",NA,NA,NA,NA,NA,4,NA
+"146","Leukemias",33,12,26,9,26,14,NA
+"147","Liveborn",6,NA,NA,NA,NA,NA,NA
+"148","Lung disease due to external agents",NA,NA,1,1,NA,1,NA
+"149","Lymphadenitis",5,4,15,1,7,2,NA
+"150","Maintenance chemotherapy; radiotherapy",2,2,5,8,8,11,NA
+"151","Malaise and fatigue",4,11,103,62,4,54,NA
+"152","Malignant neoplasm without specification of site",NA,1,11,51,1,74,NA
+"153","Malposition; malpresentation",NA,NA,NA,1,NA,NA,NA
+"154","Medical examination/evaluation",20,22,27,6,35,2,NA
+"155","Melanomas of skin",NA,NA,NA,NA,NA,NA,NA
+"156","Meningitis (except that caused by tuberculosis or sexually transmitted disease)",9,1,3,1,4,1,NA
+"157","Menopausal disorders",NA,NA,NA,3,NA,1,NA
+"158","Menstrual disorders",NA,4,54,8,NA,NA,NA
+"159","Miscellaneous mental health disorders",2,12,75,32,1,6,NA
+"160","Mood disorders",NA,2,49,23,NA,8,NA
+"161","Multiple myeloma",NA,NA,NA,4,NA,6,NA
+"162","Multiple sclerosis",2,NA,13,5,NA,4,NA
+"163","Mycoses",1,NA,7,1,NA,1,NA
+"164","Nausea and vomiting",189,59,348,72,97,89,NA
+"165","Neoplasms of unspecified nature or uncertain behavior",NA,NA,NA,1,3,6,NA
+"166","Nephritis; nephrosis; renal sclerosis",1,NA,1,1,NA,NA,NA
+"167","Nervous system congenital anomalies",2,NA,NA,NA,NA,NA,NA
+"168","Non-Hodgkin`s lymphoma",1,1,9,9,1,9,NA
+"169","Noninfectious gastroenteritis",281,95,628,145,120,86,NA
+"170","Nonmalignant breast conditions",1,1,15,4,NA,2,NA
+"171","Nonspecific chest pain",4,41,445,449,23,202,NA
+"172","Nutritional deficiencies",NA,NA,1,NA,NA,1,NA
+"173","Occlusion or stenosis of precerebral arteries",NA,NA,NA,1,NA,5,NA
+"174","Open wounds of extremities",42,94,481,132,73,44,NA
+"175","Open wounds of head; neck; and trunk",325,48,228,89,152,83,NA
+"176","Osteoarthritis",NA,NA,1,2,NA,11,NA
+"177","Osteoporosis",NA,NA,NA,1,NA,4,NA
+"178","Other acquired deformities",NA,NA,2,1,2,NA,NA
+"179","Other aftercare",45,20,18,6,40,6,NA
+"180","Other and ill-defined cerebrovascular disease",NA,NA,2,6,NA,12,NA
+"181","Other and ill-defined heart disease",NA,NA,NA,1,NA,NA,NA
+"182","Other and unspecified benign neoplasm",2,2,10,6,1,11,NA
+"183","Other bone disease and musculoskeletal deformities",NA,1,12,2,1,1,NA
+"184","Other circulatory disease",5,2,23,21,2,36,NA
+"185","Other CNS infection and poliomyelitis",NA,NA,1,NA,NA,1,NA
+"186","Other complications of birth; puerperium affecting management of mother",NA,NA,20,NA,NA,NA,NA
+"187","Other complications of pregnancy",NA,1,151,1,NA,NA,NA
+"188","Other congenital anomalies",9,8,8,NA,2,1,NA
+"189","Other connective tissue disease",26,34,304,221,38,119,NA
+"190","Other diseases of bladder and urethra",NA,NA,NA,NA,NA,3,NA
+"191","Other diseases of kidney and ureters",NA,1,4,1,NA,8,NA
+"192","Other diseases of veins and lymphatics",1,NA,4,2,NA,1,NA
+"193","Other disorders of stomach and duodenum",1,NA,5,4,2,2,NA
+"194","Other ear and sense organ disorders",94,30,167,70,65,25,NA
+"195","Other endocrine disorders",NA,NA,12,9,2,10,NA
+"196","Other eye disorders",26,15,147,80,16,39,NA
+"197","Other female genital disorders",2,4,59,13,NA,4,NA
+"198","Other fractures",2,10,17,20,4,30,NA
+"199","Other gastrointestinal disorders",158,49,282,109,71,112,NA
+"200","Other hematologic conditions",1,1,1,1,NA,1,NA
+"201","Other hereditary and degenerative nervous system conditions",1,NA,4,4,NA,10,NA
+"202","Other infections; including parasitic",1,1,8,4,1,6,NA
+"203","Other inflammatory condition of skin",2,1,21,7,2,6,NA
+"204","Other injuries and conditions due to external causes",372,483,1903,568,447,278,NA
+"205","Other liver diseases",2,1,11,18,1,27,NA
+"206","Other lower respiratory disease",327,123,551,223,169,228,NA
+"207","Other male genital disorders",7,12,34,4,7,2,NA
+"208","Other miscellaneous mental conditions",NA,NA,5,NA,NA,NA,NA
+"209","Other nervous system disorders",7,24,153,97,10,55,NA
+"210","Other non-epithelial cancer of skin",NA,NA,1,7,NA,9,NA
+"211","Other non-traumatic joint disorders",26,24,190,102,30,68,NA
+"212","Other nutritional; endocrine; and metabolic disorders",11,1,8,9,6,9,NA
+"213","Other perinatal conditions",31,NA,NA,NA,NA,NA,NA
+"214","Other pregnancy and delivery including normal",NA,NA,10,NA,NA,NA,NA
+"215","Other screening for suspected conditions (not mental disorders or infectious disease)",17,2,19,7,3,1,NA
+"216","Other skin disorders",77,50,138,58,41,28,NA
+"217","Other upper respiratory disease",37,26,106,45,36,47,NA
+"218","Other upper respiratory infections",366,114,719,101,199,34,NA
+"219","Otitis media and related conditions",272,13,59,12,53,3,NA
+"220","Ovarian cyst",NA,2,16,2,NA,1,NA
+"221","Pancreatic disorders (not diabetes)",NA,1,5,9,1,4,NA
+"222","Paralysis",1,NA,NA,1,NA,1,NA
+"223","Parkinson`s disease",NA,NA,NA,1,NA,15,NA
+"224","Pathological fracture",NA,NA,2,2,1,8,NA
+"225","Peri-; endo-; and myocarditis; cardiomyopathy (except that caused by tuberculosis or sexually transmitted disease)",1,1,17,19,4,19,NA
+"226","Peripheral and visceral atherosclerosis",NA,NA,1,1,NA,7,NA
+"227","Peritonitis and intestinal abscess",NA,NA,NA,1,1,2,NA
+"228","Personality disorders",NA,1,3,1,NA,NA,NA
+"229","Phlebitis; thrombophlebitis and thromboembolism",NA,NA,5,8,NA,14,NA
+"230","Pleurisy; pneumothorax; pulmonary collapse",1,4,11,3,NA,19,NA
+"231","Pneumonia (except that caused by tuberculosis or sexually transmitted disease)",78,8,46,52,33,124,NA
+"232","Poisoning by nonmedicinal substances",9,2,29,13,1,6,NA
+"233","Poisoning by other medications and drugs",22,13,45,21,11,12,NA
+"234","Poisoning by psychotropic agents",1,1,22,5,NA,3,NA
+"235","Polyhydramnios and other problems of amniotic cavity",NA,NA,3,NA,NA,NA,NA
+"236","Previous C-section",NA,NA,NA,NA,NA,NA,NA
+"237","Prolapse of female genital organs",NA,NA,NA,NA,NA,NA,NA
+"238","Psychogenic disorders",NA,2,3,2,NA,NA,NA
+"239","Pulmonary heart disease",NA,NA,2,4,NA,2,NA
+"240","Regional enteritis and ulcerative colitis",NA,1,12,5,3,3,NA
+"241","Rehabilitation care; fitting of prostheses; and adjustment of devices",NA,NA,2,NA,NA,2,NA
+"242","Residual codes; unclassified",31,9,48,34,11,27,NA
+"243","Respiratory failure; insufficiency; arrest (adult)",NA,2,2,1,1,4,NA
+"244","Retinal detachments; defects; vascular occlusion; and retinopathy",NA,NA,4,2,NA,6,NA
+"245","Rheumatoid arthritis and related disease",NA,NA,2,4,NA,5,NA
+"246","Schizophrenia and other psychotic disorders",NA,1,30,3,NA,2,NA
+"247","Screening and history of mental health and substance abuse codes",NA,NA,NA,1,NA,1,NA
+"248","Secondary malignancies",NA,NA,NA,NA,NA,1,NA
+"249","Septicemia (except in labor)",13,1,3,5,5,33,NA
+"250","Sexually transmitted infections (not HIV or hepatitis)",NA,NA,1,NA,NA,NA,NA
+"251","Shock",NA,NA,NA,1,NA,3,NA
+"252","Short gestation; low birth weight; and fetal growth retardation",1,NA,NA,NA,NA,NA,NA
+"253","Sickle cell anemia",18,20,22,NA,41,NA,NA
+"254","Skin and subcutaneous tissue infections",18,28,178,94,34,60,NA
+"255","Skull and face fractures",2,12,39,7,6,9,NA
+"256","Sleep disorders",1,NA,NA,NA,NA,NA,NA
+"257","Somatoform disorders",1,10,66,28,NA,6,NA
+"258","Spinal cord injury",NA,NA,2,1,NA,NA,NA
+"259","Spondylosis; intervertebral disc disorders; other back problems",3,37,449,252,25,107,NA
+"260","Spontaneous abortion",NA,NA,4,NA,NA,NA,NA
+"261","Sprains and strains",2,43,211,48,33,13,NA
+"262","Substance-related disorders",NA,2,9,2,NA,1,NA
+"263","Suicide and intentional self-inflicted injury",NA,NA,3,NA,NA,NA,NA
+"264","Superficial injury; contusion",85,66,278,89,86,48,NA
+"265","Syncope",3,23,122,72,4,73,NA
+"266","Systemic lupus erythematosus and connective tissue disorders",NA,4,3,4,NA,1,NA
+"267","Thyroid disorders",1,NA,3,2,NA,3,NA
+"268","Transient cerebral ischemia",NA,NA,1,14,NA,21,NA
+"269","Tuberculosis",1,NA,2,2,2,1,NA
+"270","Urinary tract infections",44,18,144,83,23,131,NA
+"271","Varicose veins of lower extremity",NA,NA,2,1,NA,3,NA
+"272","Viral infection",214,57,179,37,99,18,NA
+"273",NA,2,NA,9,2,2,1,NA
